@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<!-- This code was generated using AnimaApp.com. 
+This code is a high-fidelity prototype.
+Get developer-friendly React or HTML/CSS code for this project at: https://projects.animaapp.com?utm_source=hosted-code 
+14/10/2025 06:43:52 -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1920, maximum-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png">
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="photo">
+    <script id="anima-load-script" src="load.js"></script>
+    <script id="anima-hotspots-script" src="hotspots.js"></script>
+    <script id="anima-overrides-script" src="overrides.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @font-face {
+        font-family: "SF Pro Display-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/62e5bd2f729e81c0f2cb0ddb/fonts/sf-pro-display-regular.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Heavy";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/59c2ff4decf833000b61c9ae/SF-Pro-Display-Heavy.otf') format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/634e6b4b723b28ff69092d1b/fonts/fontsfree-net-sfprodisplay-bold.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Semibold";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/62600488abc580a946ffeaea/fonts/fontsfree-net-sfprodisplay-semibold.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/673d1a3e765a9ad9f6b6550d/fonts/sf-pro-display-bold.otf') format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Medium";
+        font-style: normal;
+        font-weight: 500;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/64f7ed1586d1fc0125de8d9c/fonts/sf-pro-display-medium.otf') format("opentype");
+      }
+
+      /* The following line is used to measure usage of this code. You can remove it if you want. */
+      @import url("https://px.animaapp.com/64679264342cfd9ba81b3b5d.64679267b4c99fcfc990ae14.UpQkyp4.hch.png");
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .component-wrapper a {
+        display: contents;
+        pointer-events: auto;
+        text-decoration: none;
+      }
+
+      .component-wrapper * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe {
+        pointer-events: auto;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .screen a {
+        display: contents;
+        text-decoration: none;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .container-center-vertical>* {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .container-center-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        pointer-events: none;
+        width: 100%;
+      }
+
+      .container-center-horizontal>* {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .auto-animated div {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated input {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay-base {
+        display: none;
+        height: 100%;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .overlay-base.animate-appear {
+        align-items: center;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+      }
+
+      .overlay-base.animate-disappear {
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+        display: block;
+        opacity: 1;
+        pointer-events: none;
+      }
+
+      .overlay-base.animate-disappear * {
+        pointer-events: none;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+
+      .align-self-flex-center {
+        align-self: flex-center;
+      }
+
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bay-of-many: #133e87;
+        --black: #000000;
+        --bon-jour: #dfdfdf;
+        --cultured-pearl: #f5f5f5;
+        --dove-gray: #6d6d6d;
+        --licorice: #141414;
+        --perano: #a9c8ff;
+        --sonic-silver: #737373;
+        --white: #ffffff;
+        --font-size-l: 28px;
+        --font-size-m: 24px;
+        --font-size-s: 20px;
+        --font-size-xl: 32px;
+        --font-size-xs: 17px;
+        --font-size-xxl: 36px;
+        --font-size-xxs: 15px;
+        --font-family-sf_pro-bold: "SF Pro-Bold", Helvetica;
+        --font-family-sf_pro_display-bold: "SF Pro Display-Bold", Helvetica;
+        --font-family-sf_pro_display-heavy: "SF Pro Display-Heavy", Helvetica;
+        --font-family-sf_pro_display-medium: "SF Pro Display-Medium", Helvetica;
+        --font-family-sf_pro_display-regular: "SF Pro Display-Regular", Helvetica;
+        --font-family-sf_pro_display-semibold: "SF Pro Display-Semibold", Helvetica;
+      }
+
+      .sfprodisplay-regular-normal-bay-of-many-20px {
+        color: var(--bay-of-many);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-white-24px {
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-dove-gray-20px {
+        color: var(--dove-gray);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-sonic-silver-17px {
+        color: var(--sonic-silver);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xs);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-medium-white-20px {
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-medium);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      .sfprodisplay-regular-normal-dove-gray-24px {
+        color: var(--dove-gray);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-medium-black-36px {
+        color: var(--black);
+        font-family: var(--font-family-sf_pro_display-medium);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      :root {}
+
+      /* screen - search */
+      .search {
+        background-color: #cbdceb;
+        margin: 0px;
+        min-height: 1080px;
+        min-width: 1920px;
+        overflow: hidden;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .search .search-etQwyD {
+        aspect-ratio: 16.526062;
+        background-color: transparent;
+        box-shadow: 5px 10px 15px #00000040;
+        height: 92px;
+        left: calc(50.00% - 763px);
+        position: absolute;
+        top: 147px;
+        width: 1526px;
+      }
+
+      .search .rectangle-11-Ghkogm {
+        background-color: var(--bay-of-many);
+        border-radius: 10px;
+        height: 91px;
+        left: calc(50.00% - 763px);
+        position: absolute;
+        top: 1px;
+        width: 1520px;
+      }
+
+      .search .rectangle-12-Ghkogm {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 82px;
+        left: 7px;
+        position: absolute;
+        top: 5px;
+        width: 519px;
+      }
+
+      .search .rectangle-13-Ghkogm {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 82px;
+        left: 536px;
+        position: absolute;
+        top: 5px;
+        width: 436px;
+      }
+
+      .search .rectangle-14-Ghkogm {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 82px;
+        left: 983px;
+        position: absolute;
+        top: 5px;
+        width: 384px;
+      }
+
+      .search .rectangle-15-Ghkogm {
+        background-color: #cbdceb;
+        border-radius: 10px;
+        height: 82px;
+        left: 1377px;
+        position: absolute;
+        top: 5px;
+        width: 138px;
+      }
+
+      .search .uiwdate-Ghkogm {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 37px;
+        left: 548px;
+        overflow: hidden;
+        position: absolute;
+        top: 28px;
+        width: 37px;
+      }
+
+      .search .vector-Czb3Ex {
+        height: 100.00%;
+        left: 0px;
+        top: 0px;
+        width: 100.00%;
+      }
+
+      .search .icon-park-outlinepeople-Ghkogm {
+        height: 47px;
+        left: 993px;
+        top: 23px;
+        width: 47px;
+      }
+
+      .search .vector-Jmbexu {
+        height: 79.30%;
+        left: 10.35%;
+        top: 10.35%;
+        width: 79.30%;
+      }
+
+      .search .material-symbolssearch-rounded-Ghkogm {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 64px;
+        left: 1414px;
+        overflow: hidden;
+        position: absolute;
+        top: 19px;
+        width: 64px;
+      }
+
+      .search .vector-y7fYFr {
+        height: 73.23%;
+        left: 12.50%;
+        top: 12.50%;
+        width: 73.23%;
+      }
+
+      .search .tablerfish-hook-Ghkogm {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 83px;
+        left: 7px;
+        overflow: hidden;
+        position: absolute;
+        top: 1px;
+        width: 83px;
+      }
+
+      .search .group-WeSfJJ {
+        aspect-ratio: 0.705882;
+        background-color: transparent;
+        height: 45.57%;
+        left: 33.78%;
+        position: relative;
+        top: 32.17%;
+        width: 32.17%;
+      }
+
+      .search .vector-z7LWcv {
+        height: 72.67%;
+        left: -5.64%;
+        top: 31.31%;
+        width: 94.62%;
+      }
+
+      .search .vector-XeD2uf {
+        height: 43.26%;
+        left: 61.02%;
+        top: -3.98%;
+        width: 44.62%;
+      }
+
+      .search .mau-mancing-dimana-Ghkogm {
+        align-items: center;
+        background-color: transparent;
+        color: var(--black);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        height: 83px;
+        justify-content: center;
+        left: 80px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 5px;
+        width: 252px;
+      }
+
+      .search .tanggal-mancing-Ghkogm {
+        align-items: center;
+        background-color: transparent;
+        color: var(--black);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 83px;
+        justify-content: center;
+        left: 598px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 5px;
+        width: 190px;
+      }
+
+      .search .jumlah-orang-Ghkogm {
+        align-items: center;
+        background-color: transparent;
+        color: var(--black);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 83px;
+        justify-content: center;
+        left: 1048px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 5px;
+        width: 156px;
+      }
+
+      .search .rectangle-50-etQwyD {
+        background: linear-gradient(180deg, rgba(203, 220, 235, 0) 0%, rgba(203, 220, 235, 1) 62%);
+        background-color: transparent;
+        height: 253px;
+        left: 0px;
+        position: absolute;
+        top: 2987px;
+        width: 1920px;
+      }
+
+      .search .group-37-etQwyD {
+        background-color: transparent;
+        height: 1246px;
+        left: 0px;
+        position: absolute;
+        top: 1994px;
+        width: 1920px;
+      }
+
+      .search .rectangle-49-CsGeQ7 {
+        background: linear-gradient(90deg, rgba(19, 62, 135, 1) 8%, rgba(96, 139, 193, 1) 100%);
+        background-color: transparent;
+        height: 253px;
+        left: 0px;
+        position: absolute;
+        top: 993px;
+        width: 1920px;
+      }
+
+      .search .frame-36-CsGeQ7 {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        left: calc(50.00% - 70px);
+        position: absolute;
+        top: 1030px;
+        width: 141px;
+      }
+
+      .search .content-XdtgEe {
+        align-self: stretch;
+        background-color: transparent;
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-heavy);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.00px;
+        line-height: 40px;
+        margin-top: -1.00px;
+        position: relative;
+        text-align: left;
+      }
+
+      .search .beranda-XdtgEe {
+        align-self: stretch;
+        height: 35px;
+        line-height: 40px;
+        position: relative;
+      }
+
+      .search .pesanan-saya-XdtgEe {
+        align-self: stretch;
+        line-height: 40px;
+        position: relative;
+      }
+
+      .search .ensiklopedia-XdtgEe {
+        align-self: stretch;
+        position: relative;
+      }
+
+      .search .frame-37-CsGeQ7 {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        left: calc(50.00% + 483px);
+        position: absolute;
+        top: 1030px;
+        width: 184px;
+      }
+
+      .search .contact-nbhVD5 {
+        align-self: stretch;
+        background-color: transparent;
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-heavy);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.00px;
+        line-height: 40px;
+        margin-top: -1.00px;
+        position: relative;
+        text-align: left;
+      }
+
+      .search .x2332321-nbhVD5 {
+        align-self: stretch;
+        background-color: transparent;
+        height: 35px;
+        letter-spacing: 0.00px;
+        line-height: 40px;
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .search .emailgmailcom-nbhVD5 {
+        background-color: transparent;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        margin-right: -9.00px;
+        position: relative;
+        text-align: left;
+        width: 193px;
+      }
+
+      .search .gasmancing-nbhVD5 {
+        background-color: transparent;
+        letter-spacing: 0.00px;
+        line-height: 40px;
+        margin-right: -9.00px;
+        position: relative;
+        text-align: left;
+        width: 193px;
+      }
+
+      .search .logo-CsGeQ7 {
+        height: 1151px;
+        left: calc(50.00% - 701px);
+        top: calc(50.00% - 623px);
+        width: 268px;
+      }
+
+      .search .gas-mancing-QaPb0J {
+        font-family: var(--font-family-sf_pro_display-bold);
+        font-size: var(--font-size-xxl);
+        left: calc(50.00% - 11px);
+        line-height: 40px;
+        top: calc(50.00% - 576px);
+        width: 143px;
+      }
+
+      .search .group-3-QaPb0J {
+        height: 56px;
+        top: 1095px;
+        width: 102px;
+      }
+
+      .search .vector-1-ZnZvDS {
+        height: 56px;
+        top: -6371px;
+        width: 102px;
+      }
+
+      .search .ellipse-1-ZnZvDS {
+        border-radius: 4.75px/4.43px;
+        height: 9px;
+        left: 77px;
+        top: 16px;
+        width: 9px;
+      }
+
+      .search .navbar-etQwyD {
+        background-color: transparent;
+        height: 74px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1920px;
+      }
+
+      .search .rectangle-1-8FQZrq {
+        background-color: transparent;
+        height: 109px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1920px;
+      }
+
+      .search .icon-park-outlinepeople-8FQZrq {
+        height: 41px;
+        left: 95.31%;
+        top: 16px;
+        width: 2.14%;
+      }
+
+      .search .vector-4VLXdj {
+        height: 79.88%;
+        left: 10.06%;
+        top: 10.06%;
+        width: 79.88%;
+      }
+
+      .search .menu-8FQZrq {
+        background-color: transparent;
+        box-shadow: 0px 4px 4px #00000040;
+        height: 24px;
+        left: calc(50.00% + 359px);
+        position: absolute;
+        top: 25px;
+        width: 470px;
+      }
+
+      .search .beranda-lEOjqH {
+        align-items: center;
+        color: #f3f3e0;
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        height: 20px;
+        justify-content: center;
+        left: calc(50.00% - 235px);
+        line-height: normal;
+        position: absolute;
+        top: 0px;
+        width: 93px;
+      }
+
+      .search .pesanan-saya-lEOjqH {
+        align-items: center;
+        display: flex;
+        height: 24px;
+        justify-content: center;
+        left: calc(50.00% - 92px);
+        line-height: normal;
+        position: absolute;
+        top: 0px;
+        white-space: nowrap;
+        width: 142px;
+      }
+
+      .search .ensiklopedia-lEOjqH {
+        align-items: center;
+        display: flex;
+        height: 24px;
+        justify-content: center;
+        left: calc(50.00% + 100px);
+        position: absolute;
+        top: 0px;
+        white-space: nowrap;
+        width: 129px;
+      }
+
+      .search .logo-8FQZrq {
+        height: 35px;
+        left: 110px;
+        top: calc(50.00% - 17px);
+        width: 259px;
+      }
+
+      .search .gas-mancing-Gr497q {
+        font-family: var(--font-family-sf_pro-bold);
+        font-size: var(--font-size-xl);
+        left: 65px;
+        line-height: normal;
+        top: calc(50.00% - 17px);
+        white-space: nowrap;
+        width: 192px;
+      }
+
+      .search .group-3-Gr497q {
+        height: 29px;
+        top: 6px;
+        width: 53px;
+      }
+
+      .search .vector-1-Lg2ipY {
+        height: 29px;
+        top: 0px;
+        width: 53px;
+      }
+
+      .search .ellipse-1-Lg2ipY {
+        border-radius: 2.46px/2.29px;
+        height: 5px;
+        left: 40px;
+        top: 9px;
+        width: 5px;
+      }
+
+      .search .tempat-pemancingan-di-sekitar-lokasi-etQwyD {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-xl);
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: calc(50.00% - 274px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 305px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .search .group-38-etQwyD {
+        background-color: transparent;
+        height: 400px;
+        left: 197px;
+        position: absolute;
+        top: 393px;
+        width: 1524px;
+      }
+
+      .search .rectangle-54-tdOSxr {
+        background-color: #696969;
+        border-radius: 15px 0px 0px 15px;
+        height: 400px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 600px;
+      }
+
+      .search .lokasi-tdOSxr {
+        left: 637px;
+        top: 77px;
+      }
+
+      .search .vector-9bqQRa {
+        height: 83.33%;
+        left: 16.67%;
+        top: 8.33%;
+        width: 66.67%;
+      }
+
+      .search .fasilitas-tdOSxr {
+        left: 630px;
+      }
+
+      .search .rectangle-22-Ly87oJ {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-9zdQnC {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-IU1kEl {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-r63dpz {
+        background-color: var(--bon-jour);
+        height: 31px;
+        left: 1px;
+        width: 127px;
+      }
+
+      .search .button-detail-tdOSxr {
+        left: 1095px;
+        width: 405px;
+      }
+
+      .search .rectangle-23-KZTUFF {
+        left: 1px;
+      }
+
+      .search .booking-KZTUFF {
+        left: 1px;
+      }
+
+      .search .deskripsi-tdOSxr {
+        left: 630px;
+      }
+
+      .search .nama-tempat-tdOSxr {
+        left: 637px;
+        top: 32px;
+      }
+
+      .search .group-39-etQwyD {
+        background-color: transparent;
+        height: 400px;
+        left: 197px;
+        position: absolute;
+        top: 393px;
+        width: 1524px;
+      }
+
+      .search .mask-group-F7xeGU {
+        height: 400px;
+      }
+
+      .search .deskripsi-F7xeGU {
+        left: 634px;
+      }
+
+      .search .fasilitas-F7xeGU {
+        left: 637px;
+      }
+
+      .search .rectangle-22-70XASy {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-cDMuKy {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-ZgqWsQ {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-XiMZjv {
+        background-color: var(--bon-jour);
+        height: 31px;
+        left: 1px;
+        width: 127px;
+      }
+
+      .search .button-detail-F7xeGU {
+        left: 1085px;
+        width: 415px;
+      }
+
+      .search .rectangle-23-KPFQ8p {
+        left: 0px;
+      }
+
+      .search .booking-KPFQ8p {
+        left: 10px;
+      }
+
+      .search .group-40-F7xeGU {
+        height: 73px;
+        left: 629px;
+        top: 29px;
+        width: 205px;
+      }
+
+      .search .lokasi-JYxIY9 {
+        left: 0px;
+        top: 45px;
+      }
+
+      .search .vector-AwPvOr {
+        height: 83.33%;
+        left: 16.67%;
+        top: 8.33%;
+        width: 66.67%;
+      }
+
+      .search .nama-tempat-JYxIY9 {
+        left: 0px;
+        top: 0px;
+      }
+
+      .search .rectangle-22-K8ao9U {
+        background-color: #fefce8;
+        height: 30px;
+        left: 0px;
+        width: 108px;
+      }
+
+      .search .vector-K8ao9U {
+        height: 53.16%;
+        left: 8.04%;
+        top: 23.33%;
+        width: 14.99%;
+      }
+
+      .search .group-40-etQwyD {
+        height: 400px;
+        left: 200px;
+        top: 866px;
+        width: 1524px;
+      }
+
+      .search .mask-group-s5xkE5 {
+        height: 214px;
+      }
+
+      .search .deskripsi-s5xkE5 {
+        left: 634px;
+      }
+
+      .search .fasilitas-s5xkE5 {
+        left: 637px;
+      }
+
+      .search .rectangle-22-xmLNCU {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-nd8AII {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-V6k80h {
+        background-color: var(--perano);
+        height: 31px;
+        left: 1px;
+        width: 87px;
+      }
+
+      .search .rectangle-22-in4Hhx {
+        background-color: var(--bon-jour);
+        height: 31px;
+        left: 1px;
+        width: 127px;
+      }
+
+      .search .button-detail-s5xkE5 {
+        left: 1085px;
+        width: 415px;
+      }
+
+      .search .rectangle-23-WRGXvy {
+        left: 0px;
+      }
+
+      .search .booking-WRGXvy {
+        left: 10px;
+      }
+
+      .search .group-40-s5xkE5 {
+        height: 73px;
+        left: 629px;
+        top: 29px;
+        width: 205px;
+      }
+
+      .search .lokasi-moQHbX {
+        left: 0px;
+        top: 45px;
+      }
+
+      .search .vector-goh6yc {
+        height: 83.33%;
+        left: 16.67%;
+        top: 8.33%;
+        width: 66.67%;
+      }
+
+      .search .nama-tempat-moQHbX {
+        left: 0px;
+        top: 0px;
+      }
+
+      .search .rectangle-22-tDBccx {
+        background-color: #fefce8;
+        height: 30px;
+        left: 0px;
+        width: 108px;
+      }
+
+      .search .vector-tDBccx {
+        height: 53.16%;
+        left: 8.04%;
+        top: 23.33%;
+        width: 14.99%;
+      }
+
+      .search .ancol-jakarta-barat {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        left: 30px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 3px;
+        white-space: nowrap;
+        width: 168px;
+      }
+
+      .search .beranda {
+        background-color: transparent;
+        letter-spacing: 0.00px;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .search .booking {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 45px;
+        justify-content: center;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 403px;
+      }
+
+      .search .button-detail {
+        background-color: transparent;
+        height: 45px;
+        position: absolute;
+        top: 322px;
+      }
+
+      .search .deskripsi {
+        background-color: transparent;
+        height: auto;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 217px;
+        width: 411px;
+      }
+
+      .search .ellipse-1 {
+        background-color: var(--white);
+        position: absolute;
+      }
+
+      .search .ensiklopedia {
+        background-color: transparent;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        text-align: left;
+      }
+
+      .search .fasilitas {
+        aspect-ratio: 13.322581;
+        background-color: transparent;
+        height: 31px;
+        position: absolute;
+        top: 336px;
+        width: 413px;
+      }
+
+      .search .gas-mancing {
+        background-color: transparent;
+        color: var(--white);
+        font-style: normal;
+        font-weight: 700;
+        height: auto;
+        letter-spacing: 0.00px;
+        position: absolute;
+        text-align: left;
+      }
+
+      .search .group-3 {
+        aspect-ratio: 1.830030;
+        background-color: transparent;
+        left: 0px;
+        position: absolute;
+      }
+
+      .search .group-40 {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .search .group-5 {
+        background-color: transparent;
+        height: 31px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 89px;
+      }
+
+      .search .group-6 {
+        background-color: transparent;
+        height: 31px;
+        left: 95px;
+        position: absolute;
+        top: 0px;
+        width: 89px;
+      }
+
+      .search .group-7 {
+        background-color: transparent;
+        height: 31px;
+        left: 190px;
+        position: absolute;
+        top: 0px;
+        width: 89px;
+      }
+
+      .search .group-8 {
+        background-color: transparent;
+        height: 31px;
+        left: 286px;
+        position: absolute;
+        top: 0px;
+        width: 129px;
+      }
+
+      .search .icon-park-outlinepeople {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        overflow: hidden;
+        position: absolute;
+      }
+
+      .search .kantin {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 31px;
+        justify-content: center;
+        left: calc(50.00% - 44px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 87px;
+      }
+
+      .search .logo {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .search .lokasi {
+        aspect-ratio: 7.144709;
+        background-color: transparent;
+        height: 28px;
+        position: absolute;
+        width: 200px;
+      }
+
+      .search .mask-group {
+        background-color: transparent;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 600px;
+      }
+
+      .search .milocation {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 28px;
+        left: 1px;
+        overflow: hidden;
+        position: absolute;
+        top: 1px;
+        width: 28px;
+      }
+
+      .search .nama-tempat {
+        background-color: transparent;
+        height: auto;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        width: 203px;
+      }
+
+      .search .parkir {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 31px;
+        justify-content: center;
+        left: calc(50.00% - 44px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 87px;
+      }
+
+      .search .pesanan-saya {
+        background-color: transparent;
+        letter-spacing: 0.00px;
+        text-align: left;
+      }
+
+      .search .rate {
+        background-color: transparent;
+        box-shadow: 0px 2px 10px #00000040;
+        height: 30px;
+        left: 477px;
+        position: absolute;
+        top: 14px;
+        width: 112px;
+      }
+
+      .search .rectangle-22 {
+        border-radius: 5px;
+        position: absolute;
+        top: 0px;
+      }
+
+      .search .rectangle-23 {
+        background-color: var(--bay-of-many);
+        border-radius: 5px;
+        height: 45px;
+        position: absolute;
+        top: 0px;
+        width: 402px;
+      }
+
+      .search .rectangle-53 {
+        background-color: var(--cultured-pearl);
+        border-radius: 15px;
+        box-shadow: 0px 13px 15px #00000040;
+        height: 400px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1520px;
+      }
+
+      .search .rp-50000hari {
+        align-items: center;
+        background-color: transparent;
+        color: var(--black);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-l);
+        font-style: normal;
+        font-weight: 400;
+        height: 37px;
+        justify-content: center;
+        left: calc(50.00% + 512px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 277px;
+        width: 217px;
+      }
+
+      .search .toilet {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 31px;
+        justify-content: center;
+        left: calc(50.00% - 44px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 87px;
+      }
+
+      .search .vector {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .search .vector-1 {
+        background-color: transparent;
+        left: 0px;
+        position: absolute;
+      }
+
+      .search .x1-lainnya {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 31px;
+        justify-content: center;
+        left: calc(50.00% - 64px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 127px;
+      }
+
+      .search .x300 {
+        align-items: center;
+        background-color: transparent;
+        color: var(--licorice);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xxs);
+        font-style: normal;
+        font-weight: 400;
+        height: 30px;
+        justify-content: center;
+        left: 62px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 0px;
+        width: 37px;
+      }
+
+      .search .x42 {
+        align-items: center;
+        background-color: transparent;
+        color: var(--licorice);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 24px;
+        justify-content: center;
+        left: 30px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 3px;
+        white-space: nowrap;
+        width: auto;
+      }
+    </style>
+  </head>
+  <body style="margin: 0;background: #cbdceb;">
+    <input type="hidden" id="anPageName" name="page" value="search">
+    <div class="search screen " data-id="166:1263">
+      <div class="search-etQwyD" data-id="166:1282">
+        <div class="rectangle-11-Ghkogm" data-id="166:1283"></div>
+        <div class="rectangle-12-Ghkogm" data-id="166:1284"></div>
+        <div class="rectangle-13-Ghkogm" data-id="166:1285"></div>
+        <div class="rectangle-14-Ghkogm" data-id="166:1286"></div>
+        <div class="rectangle-15-Ghkogm" data-id="166:1287"></div>
+        <div class="uiwdate-Ghkogm" data-id="166:1288">
+          <img class="vector-Czb3Ex vector" data-id="166:1289" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-11.svg" alt="Vector">
+        </div>
+        <div class="icon-park-outlinepeople-Ghkogm icon-park-outlinepeople" data-id="166:1290">
+          <img class="vector-Jmbexu vector" data-id="166:1291" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-12.svg" alt="Vector">
+        </div>
+        <div class="material-symbolssearch-rounded-Ghkogm" data-id="166:1292">
+          <img class="vector-y7fYFr vector" data-id="166:1293" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-13.svg" alt="Vector">
+        </div>
+        <div class="tablerfish-hook-Ghkogm" data-id="166:1294">
+          <div class="group-WeSfJJ" data-id="166:1295">
+            <img class="vector-z7LWcv vector" data-id="166:1296" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-14.svg" alt="Vector">
+            <img class="vector-XeD2uf vector" data-id="166:1297" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-15.svg" alt="Vector">
+          </div>
+        </div>
+        <div class="mau-mancing-dimana-Ghkogm" data-id="166:1298">Mau mancing dimana?</div>
+        <div class="tanggal-mancing-Ghkogm" data-id="166:1299">Tanggal Mancing</div>
+        <div class="jumlah-orang-Ghkogm" data-id="166:1300">Jumlah Orang</div>
+      </div>
+      <div class="rectangle-50-etQwyD" data-id="166:1594"></div>
+      <div class="group-37-etQwyD" data-id="166:1595">
+        <div class="rectangle-49-CsGeQ7" data-id="166:1596"></div>
+        <div class="frame-36-CsGeQ7" data-id="166:1597">
+          <div class="content-XdtgEe" data-id="166:1598">Content</div>
+          <div class="beranda-XdtgEe beranda sfprodisplay-regular-normal-white-24px" data-id="166:1599">Beranda</div>
+          <div class="pesanan-saya-XdtgEe pesanan-saya sfprodisplay-regular-normal-white-24px" data-id="166:1600">Pesanan Saya</div>
+          <div class="ensiklopedia-XdtgEe ensiklopedia sfprodisplay-regular-normal-white-24px" data-id="166:1601">Ensiklopedia</div>
+        </div>
+        <div class="frame-37-CsGeQ7" data-id="166:1602">
+          <div class="contact-nbhVD5" data-id="166:1603">Contact</div>
+          <div class="x2332321-nbhVD5 sfprodisplay-regular-normal-white-24px" data-id="166:1604">2332321</div>
+          <div class="emailgmailcom-nbhVD5 sfprodisplay-regular-normal-white-24px" data-id="166:1605">email@gmail.com</div>
+          <div class="gasmancing-nbhVD5 sfprodisplay-regular-normal-white-24px" data-id="166:1606">gasmancing</div>
+        </div>
+        <div class="logo-CsGeQ7 logo" data-id="166:1607">
+          <h1 class="gas-mancing-QaPb0J gas-mancing" data-id="166:1608">Gas <br>Mancing </h1>
+          <div class="group-3-QaPb0J group-3" data-id="166:1609">
+            <img class="vector-1-ZnZvDS vector-1" data-id="166:1610" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-1-3@2x.png" alt="Vector 1">
+            <div class="ellipse-1-ZnZvDS ellipse-1" data-id="166:1611"></div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-etQwyD" data-id="166:1877">
+        <img class="rectangle-1-8FQZrq" data-id="166:1878" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/rectangle-1-1.svg" alt="Rectangle 1">
+        <div class="icon-park-outlinepeople-8FQZrq icon-park-outlinepeople" data-id="272:1539">
+          <img class="vector-4VLXdj vector" data-id="272:1540" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-16.svg" alt="Vector">
+        </div>
+        <div class="menu-8FQZrq" data-id="166:1879">
+          <div class="beranda-lEOjqH beranda" data-id="166:1880">Beranda</div>
+          <div class="pesanan-saya-lEOjqH pesanan-saya sfprodisplay-regular-normal-white-24px" data-id="166:1881">Pesanan Saya</div>
+          <div class="ensiklopedia-lEOjqH ensiklopedia sfprodisplay-regular-normal-white-24px" data-id="166:1882">Ensiklopedia</div>
+        </div>
+        <div class="logo-8FQZrq logo" data-id="166:1883">
+          <div class="gas-mancing-Gr497q gas-mancing" data-id="166:1884">Gas Mancing</div>
+          <div class="group-3-Gr497q group-3" data-id="166:1885">
+            <img class="vector-1-Lg2ipY vector-1" data-id="166:1886" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68e9f460dfe92e07c4f3cdb8/img/vector-1-4.svg" alt="Vector 1">
+            <div class="ellipse-1-Lg2ipY ellipse-1" data-id="166:1887"></div>
+          </div>
+        </div>
+      </div>
+      <p class="tempat-pemancingan-di-sekitar-lokasi-etQwyD" data-id="166:1900">Tempat Pemancingan di Sekitar Lokasi</p>
+      <div class="group-38-etQwyD" data-id="166:1901">
+        <div class="rectangle-53" data-id="166:1895"></div>
+        <div class="rectangle-54-tdOSxr" data-id="166:1898"></div>
+        <div class="lokasi-tdOSxr lokasi" data-id="166:1911">
+          <div class="milocation" data-id="166:1912">
+            <img class="vector-9bqQRa vector" data-id="166:1913" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-17.svg" alt="Vector">
+          </div>
+          <div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-20px" data-id="166:1914">Ancol, Jakarta barat</div>
+        </div>
+        <div class="fasilitas-tdOSxr fasilitas" data-id="166:1928">
+          <div class="group-5" data-id="166:1929">
+            <div class="rectangle-22-Ly87oJ rectangle-22" data-id="166:1930"></div>
+            <div class="toilet sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1931">Toilet</div>
+          </div>
+          <div class="group-6" data-id="166:1932">
+            <div class="rectangle-22-9zdQnC rectangle-22" data-id="166:1933"></div>
+            <div class="parkir sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1934">Parkir</div>
+          </div>
+          <div class="group-7" data-id="166:1935">
+            <div class="rectangle-22-IU1kEl rectangle-22" data-id="166:1936"></div>
+            <div class="kantin sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1937">Kantin</div>
+          </div>
+          <div class="group-8" data-id="166:1938">
+            <div class="rectangle-22-r63dpz rectangle-22" data-id="166:1939"></div>
+            <div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="166:1940">1+ Lainnya</div>
+          </div>
+        </div>
+        <div class="button-detail-tdOSxr button-detail" data-id="166:1942">
+          <div class="rectangle-23-KZTUFF rectangle-23" data-id="166:1943"></div>
+          <div class="booking-KZTUFF booking sfprodisplay-medium-white-20px" data-id="166:1944">Booking</div>
+        </div>
+        <p class="deskripsi-tdOSxr deskripsi sfprodisplay-regular-normal-dove-gray-24px" data-id="166:1946">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p>
+        <div class="nama-tempat-tdOSxr nama-tempat sfprodisplay-medium-black-36px" data-id="166:1907">Pantai Ancol</div>
+      </div>
+      <div class="group-39-etQwyD" data-id="166:1948">
+        <div class="rectangle-53" data-id="166:1949"></div>
+        <img class="mask-group-F7xeGU mask-group" data-id="166:1975" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/mask-group-2.png" alt="Mask group">
+        <p class="deskripsi-F7xeGU deskripsi sfprodisplay-regular-normal-dove-gray-24px" data-id="166:1971">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p>
+        <div class="fasilitas-F7xeGU fasilitas" data-id="166:1955">
+          <div class="group-5" data-id="166:1956">
+            <div class="rectangle-22-70XASy rectangle-22" data-id="166:1957"></div>
+            <div class="toilet sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1958">Toilet</div>
+          </div>
+          <div class="group-6" data-id="166:1959">
+            <div class="rectangle-22-cDMuKy rectangle-22" data-id="166:1960"></div>
+            <div class="parkir sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1961">Parkir</div>
+          </div>
+          <div class="group-7" data-id="166:1962">
+            <div class="rectangle-22-ZgqWsQ rectangle-22" data-id="166:1963"></div>
+            <div class="kantin sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:1964">Kantin</div>
+          </div>
+          <div class="group-8" data-id="166:1965">
+            <div class="rectangle-22-XiMZjv rectangle-22" data-id="166:1966"></div>
+            <div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="166:1967">1+ Lainnya</div>
+          </div>
+        </div>
+        <div class="button-detail-F7xeGU button-detail" data-id="166:1968">
+          <div class="rectangle-23-KPFQ8p rectangle-23" data-id="166:1969"></div>
+          <div class="booking-KPFQ8p booking sfprodisplay-medium-white-20px" data-id="166:1970">Booking</div>
+        </div>
+        <div class="group-40-F7xeGU group-40" data-id="166:1976">
+          <div class="lokasi-JYxIY9 lokasi" data-id="166:1951">
+            <div class="milocation" data-id="166:1952">
+              <img class="vector-AwPvOr vector" data-id="166:1953" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-17.svg" alt="Vector">
+            </div>
+            <div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-20px" data-id="166:1954">Ancol, Jakarta barat</div>
+          </div>
+          <div class="nama-tempat-JYxIY9 nama-tempat sfprodisplay-medium-black-36px" data-id="166:1972">Pantai Ancol</div>
+        </div>
+        <div class="rp-50000hari" data-id="166:1977">Rp. 50.000/hari</div>
+        <div class="rate" data-id="166:2184">
+          <div class="rectangle-22-K8ao9U rectangle-22" data-id="166:2185"></div>
+          <div class="x42" data-id="166:2186">4.2</div>
+          <div class="x300" data-id="166:2187">(300)</div>
+          <img class="vector-K8ao9U vector" data-id="166:2188" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-19.svg" alt="Vector">
+        </div>
+      </div>
+      <div class="group-40-etQwyD group-40" data-id="166:2190">
+        <div class="rectangle-53" data-id="166:2191"></div>
+        <img class="mask-group-s5xkE5 mask-group" data-id="166:2192" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/mask-group-3.png" alt="Mask group">
+        <p class="deskripsi-s5xkE5 deskripsi sfprodisplay-regular-normal-dove-gray-24px" data-id="166:2195">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p>
+        <div class="fasilitas-s5xkE5 fasilitas" data-id="166:2196">
+          <div class="group-5" data-id="166:2197">
+            <div class="rectangle-22-xmLNCU rectangle-22" data-id="166:2198"></div>
+            <div class="toilet sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:2199">Toilet</div>
+          </div>
+          <div class="group-6" data-id="166:2200">
+            <div class="rectangle-22-nd8AII rectangle-22" data-id="166:2201"></div>
+            <div class="parkir sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:2202">Parkir</div>
+          </div>
+          <div class="group-7" data-id="166:2203">
+            <div class="rectangle-22-V6k80h rectangle-22" data-id="166:2204"></div>
+            <div class="kantin sfprodisplay-regular-normal-bay-of-many-20px" data-id="166:2205">Kantin</div>
+          </div>
+          <div class="group-8" data-id="166:2206">
+            <div class="rectangle-22-in4Hhx rectangle-22" data-id="166:2207"></div>
+            <div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="166:2208">1+ Lainnya</div>
+          </div>
+        </div>
+        <div class="button-detail-s5xkE5 button-detail" data-id="166:2209">
+          <div class="rectangle-23-WRGXvy rectangle-23" data-id="166:2210"></div>
+          <div class="booking-WRGXvy booking sfprodisplay-medium-white-20px" data-id="166:2211">Booking</div>
+        </div>
+        <div class="group-40-s5xkE5 group-40" data-id="166:2212">
+          <div class="lokasi-moQHbX lokasi" data-id="166:2213">
+            <div class="milocation" data-id="166:2214">
+              <img class="vector-goh6yc vector" data-id="166:2215" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-17.svg" alt="Vector">
+            </div>
+            <div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-20px" data-id="166:2216">Ancol, Jakarta barat</div>
+          </div>
+          <div class="nama-tempat-moQHbX nama-tempat sfprodisplay-medium-black-36px" data-id="166:2217">Pantai Ancol</div>
+        </div>
+        <div class="rp-50000hari" data-id="166:2218">Rp. 50.000/hari</div>
+        <div class="rate" data-id="166:2219">
+          <div class="rectangle-22-tDBccx rectangle-22" data-id="166:2220"></div>
+          <div class="x42" data-id="166:2221">4.2</div>
+          <div class="x300" data-id="166:2222">(300)</div>
+          <img class="vector-tDBccx vector" data-id="166:2223" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-19.svg" alt="Vector">
+        </div>
+      </div>
+    </div>
+    <script src="launchpad-js/launchpad-banner.js" async></script>
+    <script defer src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script>
+  </body>
+</html>

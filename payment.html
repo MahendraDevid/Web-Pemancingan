@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<!-- This code was generated using AnimaApp.com. 
+This code is a high-fidelity prototype.
+Get developer-friendly React or HTML/CSS code for this project at: https://projects.animaapp.com?utm_source=hosted-code 
+14/10/2025 07:20:32 -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1920, maximum-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png">
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="photo">
+    <script id="anima-load-script" src="load.js"></script>
+    <script id="anima-hotspots-script" src="hotspots.js"></script>
+    <script id="anima-overrides-script" src="overrides.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @font-face {
+        font-family: "SF Pro Display-Medium";
+        font-style: normal;
+        font-weight: 500;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/64f7ed1586d1fc0125de8d9c/fonts/sf-pro-display-medium.otf') format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/62e5bd2f729e81c0f2cb0ddb/fonts/sf-pro-display-regular.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/634e6b4b723b28ff69092d1b/fonts/fontsfree-net-sfprodisplay-bold.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Semibold";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/64f035e70ffb37c7c0f32912/fonts/sf-pro.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Semibold";
+        font-style: normal;
+        font-weight: 400;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/62600488abc580a946ffeaea/fonts/fontsfree-net-sfprodisplay-semibold.ttf') format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url('https://anima-uploads.s3.amazonaws.com/projects/673d1a3e765a9ad9f6b6550d/fonts/sf-pro-display-bold.otf') format("opentype");
+      }
+
+      /* The following line is used to measure usage of this code. You can remove it if you want. */
+      @import url("https://px.animaapp.com/64679264342cfd9ba81b3b5d.64679267b4c99fcfc990ae14.UpQkyp4.hch.png");
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .component-wrapper a {
+        display: contents;
+        pointer-events: auto;
+        text-decoration: none;
+      }
+
+      .component-wrapper * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe {
+        pointer-events: auto;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .screen a {
+        display: contents;
+        text-decoration: none;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .container-center-vertical>* {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .container-center-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        pointer-events: none;
+        width: 100%;
+      }
+
+      .container-center-horizontal>* {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .auto-animated div {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated input {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay-base {
+        display: none;
+        height: 100%;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .overlay-base.animate-appear {
+        align-items: center;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+      }
+
+      .overlay-base.animate-disappear {
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+        display: block;
+        opacity: 1;
+        pointer-events: none;
+      }
+
+      .overlay-base.animate-disappear * {
+        pointer-events: none;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0
+        }
+
+        to {
+          opacity: 1
+        }
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+
+      .align-self-flex-center {
+        align-self: flex-center;
+      }
+
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --black: #000000;
+        --licorice: #141414;
+        --silver-chalice: #ababab;
+        --white: #ffffff;
+        --font-size-l: 36px;
+        --font-size-m: 32px;
+        --font-size-s: 24px;
+        --font-family-sf_pro-bold: "SF Pro-Bold", Helvetica;
+        --font-family-sf_pro-semibold: "SF Pro-Semibold", Helvetica;
+        --font-family-sf_pro_display-bold: "SF Pro Display-Bold", Helvetica;
+        --font-family-sf_pro_display-medium: "SF Pro Display-Medium", Helvetica;
+        --font-family-sf_pro_display-regular: "SF Pro Display-Regular", Helvetica;
+        --font-family-sf_pro_display-semibold: "SF Pro Display-Semibold", Helvetica;
+      }
+
+      .sfpro-normal-black-32px {
+        color: var(--black);
+        font-family: var(--font-family-sf_pro-semibold);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      :root {}
+
+      /* screen - payment-page */
+      .payment-page {
+        background-color: #cbdceb;
+        margin: 0px;
+        min-height: 1080px;
+        min-width: 1920px;
+        overflow: hidden;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .payment-page .pembayaran-JBsUXR {
+        background-color: transparent;
+        height: 42px;
+        left: 163px;
+        position: absolute;
+        top: 125px;
+        width: 260px;
+      }
+
+      .payment-page .group-46-JBsUXR {
+        background-color: transparent;
+        height: 1031px;
+        left: calc(50.00% - 805px);
+        position: absolute;
+        top: 209px;
+        width: 1600px;
+      }
+
+      .payment-page .rectangle-55-GyExG0 {
+        background-color: #f5f5f5;
+        box-shadow: 20px 40px 20px #00000040;
+        height: 827px;
+        top: 0px;
+      }
+
+      .payment-page .rectangle-55-dDXxFx {
+        background-color: #cdcdcd;
+        height: 873px;
+        top: 158px;
+      }
+
+      .payment-page .group-45-JBsUXR {
+        background-color: transparent;
+        height: 822px;
+        left: 0px;
+        position: absolute;
+        top: 258px;
+        width: 1928px;
+      }
+
+      .payment-page .rectangle-58-11bmvn {
+        background-color: #133e87;
+        height: 113px;
+        left: 0px;
+        position: absolute;
+        top: 709px;
+        width: 1920px;
+      }
+
+      .payment-page .rectangle-59-11bmvn {
+        background-color: transparent;
+        height: 76px;
+        left: 30px;
+        position: absolute;
+        top: 731px;
+        width: 1867px;
+      }
+
+      .payment-page .bayar-sekarang-dengan-virtual-account-11bmvn {
+        align-items: center;
+        background-color: transparent;
+        color: #1c5ac2;
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-medium);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 500;
+        height: 77px;
+        justify-content: center;
+        left: calc(50.00% - 307px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 731px;
+        width: 555px;
+      }
+
+      .payment-page .rp-1999009-11bmvn {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 213px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 38px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .total-harga-11bmvn {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-bold);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 700;
+        height: auto;
+        left: 213px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .nomor-pesanan-11bmvn {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-bold);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 700;
+        height: auto;
+        left: 1462px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .title-JBsUXR {
+        background-color: transparent;
+        color: var(--black);
+        font-family: var(--font-family-sf_pro-semibold);
+        font-size: var(--font-size-l);
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 213px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 405px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .group-50-JBsUXR {
+        background-color: transparent;
+        height: 123px;
+        left: 211px;
+        position: absolute;
+        top: 489px;
+        width: 1509px;
+      }
+
+      .payment-page .transfer-bank-BMIh8v {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .rectangle-66-BMIh8v {
+        top: 51px;
+      }
+
+      .payment-page .ellipse-9-BMIh8v {
+        top: 66px;
+      }
+
+      .payment-page .frame-46-BMIh8v {
+        left: 20px;
+        top: 38px;
+      }
+
+      .payment-page .bri-1-hxL2FP {
+        aspect-ratio: 1.400000;
+        background-color: transparent;
+        height: 60px;
+        object-fit: cover;
+        position: relative;
+        width: 84px;
+      }
+
+      .payment-page .bni-logo-png_seeklogo-382860-1-hxL2FP {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 85px;
+        object-fit: cover;
+        position: relative;
+        width: 85px;
+      }
+
+      .payment-page .visa-logo-1-hxL2FP {
+        aspect-ratio: 1.777778;
+        background-color: transparent;
+        height: 43px;
+        object-fit: cover;
+        position: relative;
+        width: 76px;
+      }
+
+      .payment-page .mastercard-1-hxL2FP {
+        aspect-ratio: 1.188854;
+        background-color: transparent;
+        height: 56px;
+        object-fit: cover;
+        position: relative;
+        width: 67px;
+      }
+
+      .payment-page .vector-8-BMIh8v {
+        top: 74px;
+      }
+
+      .payment-page .group-51-JBsUXR {
+        background-color: transparent;
+        height: 115px;
+        left: 211px;
+        position: absolute;
+        top: 649px;
+        width: 1509px;
+      }
+
+      .payment-page .e-wallet-EcRVut {
+        background-color: transparent;
+        height: auto;
+        left: 2px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .rectangle-66-EcRVut {
+        top: 55px;
+      }
+
+      .payment-page .ellipse-9-EcRVut {
+        top: 70px;
+      }
+
+      .payment-page .frame-46-EcRVut {
+        left: 28px;
+        top: 59px;
+      }
+
+      .payment-page .logo_-gopaysvg-1-Ws0Y4A {
+        aspect-ratio: 1.033171;
+        background-color: transparent;
+        height: 51px;
+        object-fit: cover;
+        position: relative;
+        width: 52px;
+      }
+
+      .payment-page .x6042c3148add711c946833bbc2b90f6d-1-Ws0Y4A {
+        aspect-ratio: 2.424242;
+        background-color: transparent;
+        height: 50px;
+        object-fit: cover;
+        position: relative;
+        width: 122px;
+      }
+
+      .payment-page .vector-8-EcRVut {
+        top: 78px;
+      }
+
+      .payment-page .group-52-JBsUXR {
+        background-color: transparent;
+        height: 111px;
+        left: 211px;
+        position: absolute;
+        top: 817px;
+        width: 1509px;
+      }
+
+      .payment-page .qr-code-Whh3N1 {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .payment-page .rectangle-66-Whh3N1 {
+        top: 51px;
+      }
+
+      .payment-page .ellipse-9-Whh3N1 {
+        top: 66px;
+      }
+
+      .payment-page .frame-46-Whh3N1 {
+        left: 28px;
+        top: 58px;
+      }
+
+      .payment-page .quick-response-code-xh8M4x {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 46px;
+        object-fit: cover;
+        position: relative;
+        width: 46px;
+      }
+
+      .payment-page .vector-8-Whh3N1 {
+        top: 74px;
+      }
+
+      .payment-page .navbar-JBsUXR {
+        background-color: transparent;
+        height: 74px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1920px;
+      }
+
+      .payment-page .rectangle-1-NhyMBX {
+        background-color: transparent;
+        height: 109px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1920px;
+      }
+
+      .payment-page .icon-park-outlinepeople-NhyMBX {
+        aspect-ratio: 1.000000;
+        background-color: transparent;
+        height: 41px;
+        left: 95.31%;
+        overflow: hidden;
+        position: absolute;
+        top: 16px;
+        width: 2.14%;
+      }
+
+      .payment-page .vector-ptRsxo {
+        background-color: transparent;
+        height: 79.88%;
+        left: 10.06%;
+        position: absolute;
+        top: 10.06%;
+        width: 79.88%;
+      }
+
+      .payment-page .menu-NhyMBX {
+        background-color: transparent;
+        box-shadow: 0px 4px 4px #00000040;
+        height: 24px;
+        left: calc(50.00% + 359px);
+        position: absolute;
+        top: 25px;
+        width: 470px;
+      }
+
+      .payment-page .beranda-Eg2itK {
+        align-items: center;
+        background-color: transparent;
+        color: #f3f3e0;
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 20px;
+        justify-content: center;
+        left: calc(50.00% - 235px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: 93px;
+      }
+
+      .payment-page .pesanan-saya-Eg2itK {
+        align-items: center;
+        background-color: transparent;
+        color: var(--white);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 24px;
+        justify-content: center;
+        left: calc(50.00% - 92px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: 142px;
+      }
+
+      .payment-page .ensiklopedia-Eg2itK {
+        align-items: center;
+        background-color: transparent;
+        color: var(--white);
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-s);
+        font-style: normal;
+        font-weight: 400;
+        height: 24px;
+        justify-content: center;
+        left: calc(50.00% + 100px);
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        white-space: nowrap;
+        width: 129px;
+      }
+
+      .payment-page .logo-NhyMBX {
+        background-color: transparent;
+        height: 35px;
+        left: 110px;
+        position: absolute;
+        top: calc(50.00% - 17px);
+        width: 259px;
+      }
+
+      .payment-page .gas-mancing-N0TNk7 {
+        background-color: transparent;
+        color: var(--white);
+        font-family: var(--font-family-sf_pro-bold);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 700;
+        height: auto;
+        left: 65px;
+        letter-spacing: 0.00px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: calc(50.00% - 17px);
+        white-space: nowrap;
+        width: 192px;
+      }
+
+      .payment-page .group-3-N0TNk7 {
+        aspect-ratio: 1.830030;
+        background-color: transparent;
+        height: 29px;
+        left: 0px;
+        position: absolute;
+        top: 6px;
+        width: 53px;
+      }
+
+      .payment-page .vector-1-SHMGx1 {
+        background-color: transparent;
+        height: 29px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 53px;
+      }
+
+      .payment-page .ellipse-1-SHMGx1 {
+        background-color: var(--white);
+        border-radius: 2.46px/2.29px;
+        height: 5px;
+        left: 40px;
+        position: absolute;
+        top: 9px;
+        width: 5px;
+      }
+
+      .payment-page .ellipse-9 {
+        background-color: var(--silver-chalice);
+        border-radius: 15px;
+        height: 30px;
+        left: 1456px;
+        position: absolute;
+        width: 30px;
+      }
+
+      .payment-page .frame-46 {
+        align-items: center;
+        background-color: transparent;
+        display: inline-flex;
+        gap: 23px;
+        position: absolute;
+      }
+
+      .payment-page .rectangle-55 {
+        border-radius: 25px 25px 15px 15px;
+        left: calc(50.00% - 800px);
+        position: absolute;
+        width: 1600px;
+      }
+
+      .payment-page .rectangle-66 {
+        background-color: var(--white);
+        border-radius: 15px;
+        height: 60px;
+        left: calc(50.00% - 754px);
+        position: absolute;
+        width: 1507px;
+      }
+
+      .payment-page .vector-8 {
+        background-color: transparent;
+        height: 14px;
+        left: 1410px;
+        position: absolute;
+        width: 23px;
+      }
+    </style>
+  </head>
+  <body style="margin: 0;background: #cbdceb;">
+    <input type="hidden" id="anPageName" name="page" value="payment-page">
+    <div class="payment-page screen " data-id="237:489">
+      <img class="pembayaran-JBsUXR" data-id="237:507" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/pembayaran.png" alt="Pembayaran">
+      <div class="group-46-JBsUXR" data-id="237:1104">
+        <div class="rectangle-55-GyExG0 rectangle-55" data-id="237:509"></div>
+        <div class="rectangle-55-dDXxFx rectangle-55" data-id="237:1105"></div>
+      </div>
+      <div class="group-45-JBsUXR" data-id="237:580">
+        <div class="rectangle-58-11bmvn" data-id="237:581"></div>
+        <img class="rectangle-59-11bmvn" data-id="237:582" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/rectangle-59.svg" alt="Rectangle 59">
+        <p class="bayar-sekarang-dengan-virtual-account-11bmvn" data-id="237:583">Bayar Sekarang Dengan Virtual Account</p>
+        <div class="rp-1999009-11bmvn" data-id="237:1109">Rp. 1.999.009,-</div>
+        <div class="total-harga-11bmvn" data-id="237:1107">Total Harga</div>
+        <div class="nomor-pesanan-11bmvn" data-id="237:1111">#Nomor Pesanan</div>
+      </div>
+      <h1 class="title-JBsUXR" data-id="237:1113">Metode Pembayaran</h1>
+      <div class="group-50-JBsUXR" data-id="259:267">
+        <div class="transfer-bank-BMIh8v sfpro-normal-black-32px" data-id="237:1115">Transfer Bank</div>
+        <div class="rectangle-66-BMIh8v rectangle-66" data-id="237:1118"></div>
+        <div class="ellipse-9-BMIh8v ellipse-9" data-id="237:1119"></div>
+        <div class="frame-46-BMIh8v frame-46" data-id="259:265">
+          <img class="bri-1-hxL2FP" data-id="255:261" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/bri-1.png" alt="bri 1">
+          <img class="bni-logo-png_seeklogo-382860-1-hxL2FP" data-id="255:263" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/bni-logo-png-seeklogo-382860-1.png" alt="bni-logo-png_seeklogo-382860 1">
+          <img class="visa-logo-1-hxL2FP" data-id="259:261" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/visa-logo-1.png" alt="VISA-logo 1">
+          <img class="mastercard-1-hxL2FP" data-id="259:263" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/mastercard-1.png" alt="MASTERCARD 1">
+        </div>
+        <img class="vector-8-BMIh8v vector-8" data-id="259:266" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/vector-8.svg" alt="Vector 8">
+      </div>
+      <div class="group-51-JBsUXR" data-id="259:268">
+        <div class="e-wallet-EcRVut sfpro-normal-black-32px" data-id="259:269">E- Wallet</div>
+        <div class="rectangle-66-EcRVut rectangle-66" data-id="259:270"></div>
+        <div class="ellipse-9-EcRVut ellipse-9" data-id="259:271"></div>
+        <div class="frame-46-EcRVut frame-46" data-id="259:272">
+          <img class="logo_-gopaysvg-1-Ws0Y4A" data-id="259:315" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/logo-gopay-svg-1.png" alt="Logo_Gopay.svg 1">
+          <img class="x6042c3148add711c946833bbc2b90f6d-1-Ws0Y4A" data-id="259:314" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/6042c3148add711c946833bbc2b90f6d-1.png" alt="6042c3148add711c946833bbc2b90f6d 1">
+        </div>
+        <img class="vector-8-EcRVut vector-8" data-id="259:277" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/vector-8.svg" alt="Vector 8">
+      </div>
+      <div class="group-52-JBsUXR" data-id="259:279">
+        <div class="qr-code-Whh3N1 sfpro-normal-black-32px" data-id="259:280">QR Code</div>
+        <div class="rectangle-66-Whh3N1 rectangle-66" data-id="259:281"></div>
+        <div class="ellipse-9-Whh3N1 ellipse-9" data-id="259:282"></div>
+        <div class="frame-46-Whh3N1 frame-46" data-id="259:283">
+          <img class="quick-response-code-xh8M4x" data-id="259:316" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/quick-response-code-indonesia-standard-qris-logo-png-seeklogo-39.png" alt="quick-response-code-indonesia-standard-qris-logo-png_seeklogo-391791 1">
+        </div>
+        <img class="vector-8-Whh3N1 vector-8" data-id="259:288" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/vector-8.svg" alt="Vector 8">
+      </div>
+      <div class="navbar-JBsUXR" data-id="272:1586">
+        <img class="rectangle-1-NhyMBX" data-id="272:1587" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf9bd116d88337a438b40/img/rectangle-1.svg" alt="Rectangle 1">
+        <div class="icon-park-outlinepeople-NhyMBX" data-id="272:1588">
+          <img class="vector-ptRsxo" data-id="272:1589" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68edf12576e5606e46347af2/img/vector-16.svg" alt="Vector">
+        </div>
+        <div class="menu-NhyMBX" data-id="272:1590">
+          <div class="beranda-Eg2itK" data-id="272:1591">Beranda</div>
+          <div class="pesanan-saya-Eg2itK" data-id="272:1592">Pesanan Saya</div>
+          <div class="ensiklopedia-Eg2itK" data-id="272:1593">Ensiklopedia</div>
+        </div>
+        <div class="logo-NhyMBX" data-id="272:1594">
+          <div class="gas-mancing-N0TNk7" data-id="272:1595">Gas Mancing</div>
+          <div class="group-3-N0TNk7" data-id="272:1596">
+            <img class="vector-1-SHMGx1" data-id="272:1597" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/6467926ab4c99fcfc990ae16/releases/68e9f460dfe92e07c4f3cdb8/img/vector-1-4.svg" alt="Vector 1">
+            <div class="ellipse-1-SHMGx1" data-id="272:1598"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="launchpad-js/launchpad-banner.js" async></script>
+    <script defer src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script>
+  </body>
+</html>

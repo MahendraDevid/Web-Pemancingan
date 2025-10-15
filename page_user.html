@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=1920, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script id="anima-load-script" src="load.js"></script><script id="anima-hotspots-script" src="hotspots.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+  font-family: "SF Pro Display-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/62e5bd2f729e81c0f2cb0ddb/fonts/sf-pro-display-regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Display-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/64f7ed1586d1fc0125de8d9c/fonts/sf-pro-display-medium.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display-Semibold";
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/62600488abc580a946ffeaea/fonts/fontsfree-net-sfprodisplay-semibold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://anima-uploads.s3.amazonaws.com/5efe6eb8e9407760a5475b2d/SF-Pro.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Semibold";
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/64f035e70ffb37c7c0f32912/fonts/sf-pro.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Display-Heavy";
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://anima-uploads.s3.amazonaws.com/59c2ff4decf833000b61c9ae/SF-Pro-Display-Heavy.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/634e6b4b723b28ff69092d1b/fonts/fontsfree-net-sfprodisplay-bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://anima-uploads.s3.amazonaws.com/projects/673d1a3e765a9ad9f6b6550d/fonts/sf-pro-display-bold.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://anima-uploads.s3.amazonaws.com/5f0f0fe71911555ed50ab8f4/SF-Pro.ttf') format("truetype");
+}
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/68ef6e18053e3da6fa1f8c0b.68ef6e19053e3da6fa1f8c0e.2KgIQfB.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --alto: #d9d9d9;
+  --bay-of-many: #133e87;
+  --black: #000000;
+  --bon-jour: #dfdfdf;
+  --cultured-pearl: #f5f5f5;
+  --dove-gray: #6d6d6d;
+  --gray: #808080;
+  --licorice: #141414;
+  --perano: #a9c8ff;
+  --quill-gray: #d6d6d6;
+  --sonic-silver: #737373;
+  --travertine: #fefce8;
+  --white: #ffffff;
+ 
+  --font-size-l: 15px;
+  --font-size-m: 12px;
+  --font-size-xl: 16px;
+  --font-size-xxl: 17px;
+  --font-size-xxxl: 20px;
+  --font-size-xxxxl: 24px;
+  --font-size-xxxxxl: 33px;
+ 
+  --font-family-sf_pro-bold: "SF Pro-Bold", Helvetica;
+  --font-family-sf_pro-medium: "SF Pro-Medium", Helvetica;
+  --font-family-sf_pro-regular: "SF Pro-Regular", Helvetica;
+  --font-family-sf_pro-semibold: "SF Pro-Semibold", Helvetica;
+  --font-family-sf_pro_display-bold: "SF Pro Display-Bold", Helvetica;
+  --font-family-sf_pro_display-heavy: "SF Pro Display-Heavy", Helvetica;
+  --font-family-sf_pro_display-medium: "SF Pro Display-Medium", Helvetica;
+  --font-family-sf_pro_display-regular: "SF Pro Display-Regular", Helvetica;
+  --font-family-sf_pro_display-semibold: "SF Pro Display-Semibold", Helvetica;
+}
+.sfprodisplay-regular-normal-bay-of-many-17px {
+  color: var(--bay-of-many);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-regular-normal-white-24px {
+  color: var(--white);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-regular-normal-dove-gray-20px {
+  color: var(--dove-gray);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-medium-black-33px {
+  color: var(--black);
+  font-family: var(--font-family-sf_pro_display-medium);
+  font-size: var(--font-size-xxxxxl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.sfprodisplay-regular-normal-sonic-silver-17px {
+  color: var(--sonic-silver);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-regular-normal-dove-gray-16px {
+  color: var(--dove-gray);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-normal-black-17px {
+  color: var(--black);
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-medium-white-20px {
+  color: var(--white);
+  font-family: var(--font-family-sf_pro_display-medium);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.sfprodisplay-regular-normal-licorice-17px {
+  color: var(--licorice);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-regular-normal-licorice-10px {
+  color: var(--licorice);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfprodisplay-regular-normal-black-20px {
+  color: var(--black);
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxxl);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.sfpro-medium-bay-of-many-18px {
+  color: var(--bay-of-many);
+  font-family: var(--font-family-sf_pro-medium);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+:root {
+}
+
+
+/* screen - page-user */
+
+.page-user {
+  background-color: #cbdceb;
+  margin: 0px;
+  min-height: 1080px;
+  min-width: 1920px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.page-user .mask-group-5w4jgn {
+  height: 606px;
+  left: calc(50.00% - 960px);
+  top: 74px;
+  width: 1920px;
+}
+
+.page-user .isi-konten-5w4jgn {
+  background-color: transparent;
+  box-shadow: 0px 4px 10px #00000040;
+  height: 118px;
+  left: calc(50.00% - 405px);
+  position: absolute;
+  top: 183px;
+  width: 814px;
+}
+
+.page-user .temukan-spot-pemancingan-kRne3L {
+  background-color: transparent;
+  height: 72px;
+  left: calc(50.00% - 379px);
+  position: absolute;
+  top: 10px;
+  width: 767px;
+}
+
+.page-user .shadow-5w4jgn {
+  background: linear-gradient(180deg, rgba(203, 220, 235, 0) 21%, rgba(203, 220, 235, 1) 85%);
+  background-color: transparent;
+  height: 246px;
+  left: calc(50.00% - 960px);
+  position: absolute;
+  top: 434px;
+  width: 1920px;
+}
+
+.page-user .search-5w4jgn {
+  background-color: transparent;
+  box-shadow: 5px 10px 15px #00000040;
+  height: 69px;
+  left: calc(50.00% - 572px);
+  position: absolute;
+  top: 580px;
+  width: 1149px;
+}
+
+.page-user .rectangle-11-YTMWjv {
+  background-color: var(--bay-of-many);
+  border-radius: 10px;
+  height: 68px;
+  left: calc(50.00% - 575px);
+  position: absolute;
+  top: 1px;
+  width: 1143px;
+}
+
+.page-user .rectangle-12-YTMWjv {
+  background-color: var(--cultured-pearl);
+  border-radius: 10px;
+  height: 62px;
+  left: 5px;
+  position: absolute;
+  top: 4px;
+  width: 391px;
+}
+
+.page-user .rectangle-13-YTMWjv {
+  background-color: var(--cultured-pearl);
+  border-radius: 10px;
+  height: 62px;
+  left: 403px;
+  position: absolute;
+  top: 4px;
+  width: 328px;
+}
+
+.page-user .rectangle-14-YTMWjv {
+  background-color: var(--cultured-pearl);
+  border-radius: 10px;
+  height: 62px;
+  left: 739px;
+  position: absolute;
+  top: 4px;
+  width: 289px;
+}
+
+.page-user .rectangle-15-YTMWjv {
+  background-color: #cbdceb;
+  border-radius: 10px;
+  height: 62px;
+  left: 1036px;
+  position: absolute;
+  top: 4px;
+  width: 104px;
+}
+
+.page-user .uiwdate-YTMWjv {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  height: 28px;
+  left: 412px;
+  overflow: hidden;
+  position: absolute;
+  top: 21px;
+  width: 28px;
+}
+
+.page-user .vector-QxfNek {
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+.page-user .icon-park-outlinepeople-YTMWjv {
+  height: 35px;
+  left: 747px;
+  top: 17px;
+  width: 35px;
+}
+
+.page-user .vector-mvJZjc {
+  height: 80.71%;
+  left: 9.64%;
+  top: 9.64%;
+  width: 80.71%;
+}
+
+.page-user .material-symbolssearch-rounded-YTMWjv {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  height: 48px;
+  left: 1064px;
+  overflow: hidden;
+  position: absolute;
+  top: 14px;
+  width: 48px;
+}
+
+.page-user .vector-MxUjUn {
+  height: 73.23%;
+  left: 12.50%;
+  top: 12.50%;
+  width: 73.23%;
+}
+
+.page-user .tablerfish-hook-YTMWjv {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  height: 62px;
+  left: 5px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  width: 62px;
+}
+
+.page-user .group-2ty73Y {
+  aspect-ratio: 0.705882;
+  background-color: transparent;
+  height: 45.57%;
+  left: 33.78%;
+  position: relative;
+  top: 32.17%;
+  width: 32.17%;
+}
+
+.page-user .vector-657n83 {
+  height: 75.29%;
+  left: -7.50%;
+  top: 30.00%;
+  width: 98.33%;
+}
+
+.page-user .vector-EuflgW {
+  height: 45.88%;
+  left: 59.17%;
+  top: -5.29%;
+  width: 48.33%;
+}
+
+.page-user .mau-mancing-dimana-YTMWjv {
+  background-color: transparent;
+  height: auto;
+  left: 60px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 23px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.page-user .tanggal-mancing-YTMWjv {
+  background-color: transparent;
+  height: auto;
+  left: 450px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 23px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.page-user .jumlah-orang-YTMWjv {
+  background-color: transparent;
+  height: auto;
+  left: 788px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 23px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.page-user .group-17-5w4jgn {
+  background-color: transparent;
+  height: 1297px;
+  left: calc(50.00% - 761px);
+  position: absolute;
+  top: 771px;
+  width: 1524px;
+}
+
+.page-user .card-hQoOjF {
+  background-color: transparent;
+  height: 555px;
+  left: 2px;
+  position: absolute;
+  top: 742px;
+  width: 1520px;
+}
+
+.page-user .group-16-QUDzm3 {
+  top: 0px;
+}
+
+.page-user .card-tempat-pancing-NxNhfu {
+  left: 534px;
+  top: 0px;
+}
+
+.page-user .card-mVMFFu {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-mVMFFu {
+  height: 250px;
+  left: -17858px;
+  top: -6371px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-vOfHtN {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-xFdyWB {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-p5dBDC {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-lgPgIO {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-IilSRI {
+  height: 83.33%;
+  left: -113089.29%;
+  top: -49759.26%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-r41R7u {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-1OxGhc {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-MzLJEb {
+  height: 79.17%;
+  left: -94073.29%;
+  top: -40447.81%;
+  width: 83.33%;
+}
+
+.page-user .card-tempat-pancing-8DGnq5 {
+  left: 0px;
+  top: 4px;
+}
+
+.page-user .card-RDzLpp {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-RDzLpp {
+  height: 250px;
+  left: -17858px;
+  top: -6371px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-Ov0zh0 {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-Rgy0u1 {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-uyEedf {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-uYXjkz {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-luHzg4 {
+  height: 83.33%;
+  left: -109843.97%;
+  top: -49783.57%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-1BFzDl {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-MnARKn {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-wLvx1y {
+  height: 79.17%;
+  left: -91422.54%;
+  top: -40467.66%;
+  width: 83.33%;
+}
+
+.page-user .card-tempat-pancing-UEZ1Le {
+  left: 1070px;
+  top: 4px;
+}
+
+.page-user .card-ZupfGn {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-ZupfGn {
+  height: 250px;
+  left: -17858px;
+  top: -6371px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-6Rm1s6 {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-rZ3iiS {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-BB1REY {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-3tQopZ {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-ZOxWHu {
+  height: 83.33%;
+  left: -116346.76%;
+  top: -49783.57%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-o1B8RM {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-lniV2g {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-9xyR50 {
+  height: 79.17%;
+  left: -96733.96%;
+  top: -40467.66%;
+  width: 83.33%;
+}
+
+.page-user .card-1ECCtd {
+  background-color: transparent;
+  height: 555px;
+  left: 0px;
+  position: absolute;
+  top: 139px;
+  width: 1520px;
+}
+
+.page-user .group-16-U6C03m {
+  top: -0px;
+}
+
+.page-user .card-tempat-pancing-oYUSR1 {
+  left: 534px;
+  top: 0px;
+}
+
+.page-user .card-eBglZm {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-eBglZm {
+  height: 170px;
+  left: 0px;
+  top: 0px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-ayhfqQ {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-qsXvAW {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-vONnIY {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-tbJm7v {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-XNsbj7 {
+  height: 83.33%;
+  left: -113077.13%;
+  top: -46094.60%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-saxm0V {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-qexUME {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-OxyZ7l {
+  height: 79.17%;
+  left: -94063.36%;
+  top: -37454.55%;
+  width: 83.33%;
+}
+
+.page-user .card-tempat-pancing-UUrMcl {
+  left: 0px;
+  top: 4px;
+}
+
+.page-user .card-4XkDks {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-4XkDks {
+  height: 166px;
+  left: 0px;
+  top: 0px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-DbLewj {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-2ZxwCw {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-XSkodC {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-KtdXdS {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-xQjZPu {
+  height: 83.33%;
+  left: -109831.82%;
+  top: -46118.91%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-XAG1tU {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-klrKH2 {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-iveijt {
+  height: 79.17%;
+  left: -91412.62%;
+  top: -37474.40%;
+  width: 83.33%;
+}
+
+.page-user .card-tempat-pancing-Cad4I0 {
+  left: 1070px;
+  top: 4px;
+}
+
+.page-user .card-IGcyT3 {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  height: 550px;
+  left: 0px;
+  position: absolute;
+  top: 1px;
+  width: 450px;
+}
+
+.page-user .mask-group-IGcyT3 {
+  height: 166px;
+  left: 0px;
+  top: 0px;
+  width: 450px;
+}
+
+.page-user .rectangle-22-Fq0xza {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-Zrp1Vi {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-uCxBP7 {
+  background-color: var(--perano);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 62px;
+}
+
+.page-user .rectangle-22-7SWVkb {
+  background-color: var(--bon-jour);
+  height: 22px;
+  left: 1px;
+  top: 1px;
+  width: 90px;
+}
+
+.page-user .vector-NURZ16 {
+  height: 83.33%;
+  left: -116334.60%;
+  top: -46118.91%;
+  width: 66.67%;
+}
+
+.page-user .rectangle-22-b6xRdH {
+  background-color: var(--quill-gray);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 136px;
+}
+
+.page-user .rectangle-22-3BzoFh {
+  background-color: var(--travertine);
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+}
+
+.page-user .vector-GKiF10 {
+  height: 79.17%;
+  left: -96724.04%;
+  top: -37474.40%;
+  width: 83.33%;
+}
+
+.page-user .tempat-pemancingan-populer-hQoOjF {
+  background-color: transparent;
+  height: 36px;
+  left: calc(50.00% - 263px);
+  position: absolute;
+  top: 9px;
+  width: 524px;
+}
+
+.page-user .carousel-ensik-5w4jgn {
+  background-color: transparent;
+  height: 566px;
+  left: calc(50.00% - 960px);
+  position: absolute;
+  top: 2196px;
+  width: 1924px;
+}
+
+.page-user .frame-26-x1aSin {
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 0px 7px 10px #00000040;
+  display: inline-flex;
+  gap: 25px;
+  left: calc(50.00% - 101px);
+  position: absolute;
+  top: 546px;
+}
+
+.page-user .ellipse-6-Uj3K9i {
+  background-color: var(--alto);
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.page-user .ellipse-3-Uj3K9i {
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.page-user .ellipse-2-Uj3K9i {
+  background-color: #676766;
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.page-user .ellipse-4-Uj3K9i {
+  background-color: var(--alto);
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.page-user .ellipse-5-Uj3K9i {
+  background-color: var(--alto);
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.page-user .group-27-x1aSin {
+  aspect-ratio: 1.066667;
+  background-color: transparent;
+  height: 300px;
+  left: calc(50.00% + 517px);
+  position: absolute;
+  top: 150px;
+  width: 326px;
+}
+
+.page-user .rectangle-35-KDJTS0 {
+  height: 300px;
+  left: calc(50.00% - 163px);
+  width: 320px;
+}
+
+.page-user .group-24-KDJTS0 {
+  height: 39px;
+  left: -17839px;
+  top: -6353px;
+  width: 42px;
+}
+
+.page-user .teknik-mancing-adala-KDJTS0 {
+  font-family: var(--font-family-sf_pro-regular);
+  font-size: var(--font-size-m);
+  left: calc(50.00% - 143px);
+  top: 101px;
+  width: 280px;
+}
+
+.page-user .baca-selengkapnya-KDJTS0 {
+  font-family: var(--font-family-sf_pro-semibold);
+  font-size: 14px;
+  left: 23px;
+  top: 257px;
+  width: 138px;
+}
+
+.page-user .group-26-x1aSin {
+  aspect-ratio: 1.050000;
+  background-color: transparent;
+  height: 350px;
+  left: calc(50.00% + 174px);
+  position: absolute;
+  top: 125px;
+  width: 374px;
+}
+
+.page-user .rectangle-35-BCwnoo {
+  height: 350px;
+  left: calc(50.00% - 187px);
+  width: 368px;
+}
+
+.page-user .group-24-BCwnoo {
+  height: 45px;
+  left: -17839px;
+  top: -6353px;
+  width: 48px;
+}
+
+.page-user .teknik-mancing-adala-BCwnoo {
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-l);
+  left: calc(50.00% - 165px);
+  top: 97px;
+  width: 325px;
+}
+
+.page-user .baca-selengkapnya-BCwnoo {
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: var(--font-size-xl);
+  left: 24px;
+  top: 311px;
+  white-space: nowrap;
+  width: 319px;
+}
+
+.page-user .group-28-x1aSin {
+  aspect-ratio: 1.066667;
+  background-color: transparent;
+  height: 300px;
+  left: calc(50.00% - 823px);
+  position: absolute;
+  top: 150px;
+  width: 326px;
+}
+
+.page-user .rectangle-35-FTH6YY {
+  height: 300px;
+  left: calc(50.00% - 163px);
+  width: 320px;
+}
+
+.page-user .group-24-FTH6YY {
+  height: 39px;
+  left: -17839px;
+  top: -6353px;
+  width: 42px;
+}
+
+.page-user .teknik-mancing-adala-FTH6YY {
+  font-family: var(--font-family-sf_pro-regular);
+  font-size: var(--font-size-m);
+  left: calc(50.00% - 143px);
+  top: 101px;
+  width: 280px;
+}
+
+.page-user .baca-selengkapnya-FTH6YY {
+  font-family: var(--font-family-sf_pro-semibold);
+  font-size: 14px;
+  left: 23px;
+  top: 257px;
+  width: 138px;
+}
+
+.page-user .group-29-x1aSin {
+  aspect-ratio: 1.050000;
+  background-color: transparent;
+  height: 350px;
+  left: calc(50.00% - 546px);
+  position: absolute;
+  top: 125px;
+  width: 374px;
+}
+
+.page-user .rectangle-35-oygiGY {
+  height: 350px;
+  left: calc(50.00% - 187px);
+  width: 368px;
+}
+
+.page-user .group-24-oygiGY {
+  height: 45px;
+  left: -17839px;
+  top: -6353px;
+  width: 48px;
+}
+
+.page-user .teknik-mancing-adala-oygiGY {
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-l);
+  left: calc(50.00% - 165px);
+  top: 97px;
+  width: 325px;
+}
+
+.page-user .baca-selengkapnya-oygiGY {
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: var(--font-size-xl);
+  left: 24px;
+  top: 311px;
+  white-space: nowrap;
+  width: 319px;
+}
+
+.page-user .group-25-x1aSin {
+  background-color: transparent;
+  height: 400px;
+  left: calc(50.00% - 210px);
+  position: absolute;
+  top: 100px;
+  width: 426px;
+}
+
+.page-user .rectangle-35-Iexvxk {
+  height: 400px;
+  left: calc(50.00% - 213px);
+  width: 420px;
+}
+
+.page-user .group-24-Iexvxk {
+  height: 57px;
+  left: -17836px;
+  top: -6351px;
+  width: 61px;
+}
+
+.page-user .teknik-mancing-adala-Iexvxk {
+  font-family: var(--font-family-sf_pro_display-regular);
+  font-size: var(--font-size-xxl);
+  left: calc(50.00% - 188px);
+  top: 128px;
+  width: 371px;
+}
+
+.page-user .baca-selengkapnya-Iexvxk {
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: var(--font-size-xxl);
+  left: 27px;
+  top: 355px;
+  width: 365px;
+}
+
+.page-user .teknik-mancing-Iexvxk {
+  background-color: transparent;
+  color: var(--licorice);
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 99px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 30px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.page-user .rectangle-47-x1aSin {
+  background: linear-gradient(270deg, rgba(203, 220, 235, 0) 0%, rgba(203, 220, 235, 1) 100%);
+  background-color: transparent;
+  height: 400px;
+  left: 1358px;
+  position: absolute;
+  top: 100px;
+  transform: rotate(180deg);
+  width: 564px;
+}
+
+.page-user .rectangle-48-x1aSin {
+  background: linear-gradient(270deg, rgba(203, 220, 235, 0) 0%, rgba(203, 220, 235, 1) 100%);
+  background-color: transparent;
+  height: 400px;
+  left: 0px;
+  position: absolute;
+  top: 100px;
+  width: 564px;
+}
+
+.page-user .tips-tips-memancing-x1aSin {
+  aspect-ratio: 11.490909;
+  background-color: transparent;
+  height: 55px;
+  left: calc(50.00% - 18176px);
+  position: absolute;
+  top: -6371px;
+  width: 632px;
+}
+
+.page-user .rectangle-50-5w4jgn {
+  background: linear-gradient(180deg, rgba(203, 220, 235, 0) 0%, rgba(203, 220, 235, 1) 62%);
+  background-color: transparent;
+  height: 253px;
+  left: 0px;
+  position: absolute;
+  top: 2987px;
+  width: 1920px;
+}
+
+.page-user .group-37-5w4jgn {
+  background-color: transparent;
+  height: 1246px;
+  left: 0px;
+  position: absolute;
+  top: 1994px;
+  width: 1920px;
+}
+
+.page-user .rectangle-49-xGTvYp {
+  background: linear-gradient(90deg, rgba(19, 62, 135, 1) 8%, rgba(96, 139, 193, 1) 100%);
+  background-color: transparent;
+  height: 253px;
+  left: 0px;
+  position: absolute;
+  top: 993px;
+  width: 1920px;
+}
+
+.page-user .frame-36-xGTvYp {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  left: calc(50.00% - 70px);
+  position: absolute;
+  top: 1030px;
+  width: 141px;
+}
+
+.page-user .content-qkjRZb {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-sf_pro_display-heavy);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.00px;
+  line-height: 40px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .beranda-qkjRZb {
+  align-self: stretch;
+  height: 35px;
+  line-height: 40px;
+  position: relative;
+}
+
+.page-user .pesanan-saya-qkjRZb {
+  align-self: stretch;
+  line-height: 40px;
+  position: relative;
+}
+
+.page-user .ensiklopedia-qkjRZb {
+  align-self: stretch;
+  position: relative;
+}
+
+.page-user .frame-37-xGTvYp {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  left: calc(50.00% + 483px);
+  position: absolute;
+  top: 1030px;
+  width: 184px;
+}
+
+.page-user .contact-ajBW7w {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-sf_pro_display-heavy);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.00px;
+  line-height: 40px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .x2332321-ajBW7w {
+  align-self: stretch;
+  background-color: transparent;
+  height: 35px;
+  letter-spacing: 0.00px;
+  line-height: 40px;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.page-user .emailgmailcom-ajBW7w {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  margin-right: -9.00px;
+  position: relative;
+  text-align: left;
+  width: 193px;
+}
+
+.page-user .gasmancing-ajBW7w {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  line-height: 40px;
+  margin-right: -9.00px;
+  position: relative;
+  text-align: left;
+  width: 193px;
+}
+
+.page-user .logo-xGTvYp {
+  height: 1151px;
+  left: calc(50.00% - 701px);
+  top: calc(50.00% - 623px);
+  width: 268px;
+}
+
+.page-user .gas-mancing-ezzvzx {
+  font-family: var(--font-family-sf_pro_display-bold);
+  font-size: 36px;
+  left: calc(50.00% - 11px);
+  line-height: 40px;
+  top: calc(50.00% - 576px);
+  width: 143px;
+}
+
+.page-user .group-3-ezzvzx {
+  aspect-ratio: 1.830030;
+  height: 56px;
+  left: 0px;
+  top: 1095px;
+  width: 102px;
+}
+
+.page-user .vector-1-6WC9lM {
+  height: 56px;
+  left: -17858px;
+  top: -6371px;
+  width: 102px;
+}
+
+.page-user .ellipse-1-6WC9lM {
+  background-color: var(--white);
+  border-radius: 4.75px/4.43px;
+  height: 9px;
+  left: 77px;
+  position: absolute;
+  top: 16px;
+  width: 9px;
+}
+
+.page-user .navbar-5w4jgn {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.page-user .rectangle-1-lGX5V1 {
+  background-color: transparent;
+  height: 109px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.page-user .icon-park-outlinepeople-lGX5V1 {
+  height: 41px;
+  left: 94.79%;
+  top: 16px;
+  width: 2.14%;
+}
+
+.page-user .vector-f2GQJU {
+  height: 79.88%;
+  left: 10.06%;
+  top: 10.06%;
+  width: 79.88%;
+}
+
+.page-user .menu-lGX5V1 {
+  background-color: transparent;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 24px;
+  left: calc(50.00% + 359px);
+  position: absolute;
+  top: 25px;
+  width: 470px;
+}
+
+.page-user .beranda-O8elTd {
+  align-items: center;
+  color: #f3f3e0;
+  display: flex;
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: var(--font-size-xxxxl);
+  font-style: normal;
+  font-weight: 400;
+  height: 20px;
+  justify-content: center;
+  left: calc(50.00% - 235px);
+  line-height: normal;
+  position: absolute;
+  top: 0px;
+  width: 93px;
+}
+
+.page-user .pesanan-saya-O8elTd {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  left: calc(50.00% - 92px);
+  line-height: normal;
+  position: absolute;
+  top: 0px;
+  white-space: nowrap;
+  width: 142px;
+}
+
+.page-user .ensiklopedia-O8elTd {
+  align-items: center;
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  left: calc(50.00% + 100px);
+  position: absolute;
+  top: 0px;
+  white-space: nowrap;
+  width: 129px;
+}
+
+.page-user .logo-lGX5V1 {
+  height: 35px;
+  left: 110px;
+  top: calc(50.00% - 17px);
+  width: 259px;
+}
+
+.page-user .gas-mancing-mdguin {
+  font-family: var(--font-family-sf_pro-bold);
+  font-size: 32px;
+  left: 65px;
+  line-height: normal;
+  top: calc(50.00% - 17px);
+  white-space: nowrap;
+  width: 192px;
+}
+
+.page-user .group-3-mdguin {
+  aspect-ratio: 1.830030;
+  height: 29px;
+  left: 0px;
+  top: 6px;
+  width: 53px;
+}
+
+.page-user .vector-1-NNBu1G {
+  height: 29px;
+  left: 0px;
+  top: 0px;
+  width: 53px;
+}
+
+.page-user .ellipse-1-NNBu1G {
+  background-color: var(--white);
+  border-radius: 2.46px/2.29px;
+  height: 5px;
+  left: 40px;
+  position: absolute;
+  top: 9px;
+  width: 5px;
+}
+
+.page-user .group-62-5w4jgn {
+  background-color: transparent;
+  height: 249px;
+  left: 1710px;
+  position: absolute;
+  top: 67px;
+  width: 194px;
+}
+
+.page-user .group-30-Bl53FB {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.page-user .card-lRvlxh {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: 90.09%;
+  left: 0px;
+  position: absolute;
+  top: 9.91%;
+  width: 100%;
+}
+
+.page-user .polygon-1-lRvlxh {
+  background-color: transparent;
+  height: 26px;
+  left: 112px;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.page-user .frame-23-Bl53FB {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 18px;
+  position: absolute;
+  top: 45px;
+  width: 75px;
+}
+
+.page-user .nama-K6U4uz {
+  align-self: stretch;
+  background-color: transparent;
+  height: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .email-K6U4uz {
+  align-self: stretch;
+  background-color: transparent;
+  height: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .no-telp-K6U4uz {
+  align-self: stretch;
+  background-color: transparent;
+  height: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .frame-24-Bl53FB {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  left: 51px;
+  position: absolute;
+  top: 168px;
+  width: 75px;
+}
+
+.page-user .log-out-H0qqyG {
+  align-self: stretch;
+  background-color: transparent;
+  color: var(--bay-of-many);
+  font-family: var(--font-family-sf_pro-bold);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  height: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: left;
+}
+
+.page-user .edit-profile-H0qqyG {
+  background-color: transparent;
+  color: var(--bay-of-many);
+  font-family: var(--font-family-sf_pro-bold);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  height: 23px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  margin-right: -38.00px;
+  position: relative;
+  text-align: left;
+  width: 113px;
+}
+
+.page-user .group-3-Bl53FB {
+  aspect-ratio: 1.709406;
+  height: 5.22%;
+  left: 9.28%;
+  top: 69.08%;
+  width: 11.45%;
+}
+
+.page-user .vector-1-jikSaG {
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 100.00%;
+}
+
+.page-user .ellipse-1-jikSaG {
+  background-color: var(--bay-of-many);
+  border-radius: 1.03px;
+  height: 15.83%;
+  left: 75.44%;
+  position: absolute;
+  top: 29.39%;
+  width: 9.26%;
+}
+
+.page-user .group-31-Bl53FB {
+  aspect-ratio: 1.709406;
+  background-color: transparent;
+  height: 5.22%;
+  left: 9.28%;
+  position: absolute;
+  top: 84.74%;
+  width: 11.45%;
+}
+
+.page-user .vector-1-U8BmZc {
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 100.00%;
+}
+
+.page-user .ellipse-1-U8BmZc {
+  background-color: var(--bay-of-many);
+  border-radius: 1.03px;
+  height: 15.83%;
+  left: 75.44%;
+  position: absolute;
+  top: 21.70%;
+  width: 9.26%;
+}
+
+.page-user .ancol-jakarta-barat {
+  background-color: transparent;
+  height: auto;
+  left: 16px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  width: 137px;
+}
+
+.page-user .baca-selengkapnya {
+  background-color: transparent;
+  color: var(--licorice);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+}
+
+.page-user .beranda {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.page-user .button-detail {
+  background-color: transparent;
+  height: 45px;
+  left: 17px;
+  position: absolute;
+  top: 491px;
+  width: 415px;
+}
+
+.page-user .card-tempat-pancing {
+  background-color: transparent;
+  height: 551px;
+  position: absolute;
+  width: 454px;
+}
+
+.page-user .deskripsi {
+  background-color: transparent;
+  height: auto;
+  left: 20px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 387px;
+  width: 411px;
+}
+
+.page-user .ensiklopedia {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  text-align: left;
+}
+
+.page-user .fasilitas {
+  background-color: transparent;
+  height: 22px;
+  left: 18px;
+  position: absolute;
+  top: 452px;
+  width: 293px;
+}
+
+.page-user .gas-mancing {
+  background-color: transparent;
+  color: var(--white);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  letter-spacing: 0.00px;
+  position: absolute;
+  text-align: left;
+}
+
+.page-user .group-16 {
+  background-color: transparent;
+  box-shadow: 10px 15px 15px #00000040;
+  height: 555px;
+  left: 0px;
+  position: relative;
+  width: 1520px;
+}
+
+.page-user .group-24 {
+  aspect-ratio: 1.074074;
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .group-3 {
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .group-5 {
+  background-color: transparent;
+  height: 22px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 64px;
+}
+
+.page-user .group-6 {
+  background-color: transparent;
+  height: 22px;
+  left: 68px;
+  position: absolute;
+  top: 0px;
+  width: 64px;
+}
+
+.page-user .group-7 {
+  background-color: transparent;
+  height: 22px;
+  left: 135px;
+  position: absolute;
+  top: 0px;
+  width: 64px;
+}
+
+.page-user .group-8 {
+  background-color: transparent;
+  height: 22px;
+  left: 203px;
+  position: absolute;
+  top: 0px;
+  width: 92px;
+}
+
+.page-user .harga {
+  background-color: transparent;
+  height: 30px;
+  left: 305px;
+  position: absolute;
+  top: 14px;
+  width: 138px;
+}
+
+.page-user .icon-park-outlinepeople {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  overflow: hidden;
+  position: absolute;
+}
+
+.page-user .kantin {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  left: calc(50.00% - 25px);
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1px;
+  width: 47px;
+}
+
+.page-user .lihat-detail-booking {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  left: 1px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  width: 413px;
+}
+
+.page-user .logo {
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .lokasi {
+  background-color: transparent;
+  height: 19px;
+  left: 18px;
+  position: absolute;
+  top: 303px;
+  width: 155px;
+}
+
+.page-user .mask-group {
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .material-symbolsstar-outline {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  height: 20px;
+  left: 2px;
+  overflow: hidden;
+  position: absolute;
+  top: 5px;
+  width: 20px;
+}
+
+.page-user .milocation {
+  aspect-ratio: 1.000000;
+  background-color: transparent;
+  height: 16px;
+  left: 1px;
+  overflow: hidden;
+  position: absolute;
+  top: 2px;
+  width: 16px;
+}
+
+.page-user .nama-tempat {
+  background-color: transparent;
+  height: auto;
+  left: 20px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 261px;
+  width: 177px;
+}
+
+.page-user .pancingan-terbaik {
+  background-color: transparent;
+  color: var(--licorice);
+  font-family: var(--font-family-sf_pro-semibold);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 75px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 24px;
+  white-space: nowrap;
+  width: 179px;
+}
+
+.page-user .parkir {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  left: calc(50.00% - 21px);
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1px;
+  width: 41px;
+}
+
+.page-user .pesanan-saya {
+  background-color: transparent;
+  letter-spacing: 0.00px;
+  text-align: left;
+}
+
+.page-user .rate {
+  background-color: transparent;
+  box-shadow: 0px 2px 10px #00000040;
+  height: 30px;
+  left: 358px;
+  position: absolute;
+  top: 261px;
+  width: 84px;
+}
+
+.page-user .rectangle-22 {
+  border-radius: 5px;
+  position: absolute;
+}
+
+.page-user .rectangle-23 {
+  background-color: var(--bay-of-many);
+  border-radius: 5px;
+  height: 45px;
+  left: 1px;
+  position: absolute;
+  top: 0px;
+  width: 412px;
+}
+
+.page-user .rectangle-35 {
+  background-color: var(--cultured-pearl);
+  border-radius: 20px;
+  box-shadow: 0px 15px 15px #00000040;
+  position: absolute;
+  top: 0px;
+}
+
+.page-user .rp-50000hari {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  left: calc(50.00% - 61px);
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 0px;
+  width: 123px;
+}
+
+.page-user .teknik-mancing-adala {
+  background-color: transparent;
+  color: var(--gray);
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+}
+
+.page-user .toilet {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  left: calc(50.00% - 20px);
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1px;
+  width: 38px;
+}
+
+.page-user .umpan-terbaik {
+  background-color: transparent;
+  color: var(--licorice);
+  font-family: var(--font-family-sf_pro_display-semibold);
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  height: auto;
+  left: 59px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 23px;
+  width: 222px;
+}
+
+.page-user .vector {
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .vector-1 {
+  background-color: transparent;
+  position: absolute;
+}
+
+.page-user .x1-lainnya {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  left: calc(50.00% - 40px);
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 1px;
+  width: 78px;
+}
+
+.page-user .x300 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  left: 49px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 7px;
+  width: 25px;
+}
+
+.page-user .x42 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  left: 24px;
+  letter-spacing: 0.00px;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 0px;
+  width: 25px;
+}
+</style></head><body style="margin: 0;background: #cbdceb;"><input type="hidden" id="anPageName" name="page" value="page-user"><div class="page-user screen " data-id="272:1689"><img class="mask-group-5w4jgn mask-group" data-id="272:1690" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group.png" alt="Mask group"><div class="isi-konten-5w4jgn" data-id="272:1693"><img class="temukan-spot-pemancingan-kRne3L" data-id="272:1694" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/temukan-spot-pemancingan.png" alt="Temukan Spot Pemancingan"></div><div class="shadow-5w4jgn" data-id="272:1713"></div><div class="search-5w4jgn" data-id="272:1714"><div class="rectangle-11-YTMWjv" data-id="272:1715"></div><div class="rectangle-12-YTMWjv" data-id="272:1716"></div><div class="rectangle-13-YTMWjv" data-id="272:1717"></div><div class="rectangle-14-YTMWjv" data-id="272:1718"></div><div class="rectangle-15-YTMWjv" data-id="272:1719"></div><div class="uiwdate-YTMWjv" data-id="272:1720"><img class="vector-QxfNek vector" data-id="272:1721" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector.svg" alt="Vector"></div><div class="icon-park-outlinepeople-YTMWjv icon-park-outlinepeople" data-id="272:1722"><img class="vector-mvJZjc vector" data-id="272:1723" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1.svg" alt="Vector"></div><div class="material-symbolssearch-rounded-YTMWjv" data-id="272:1724"><img class="vector-MxUjUn vector" data-id="272:1725" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-2.svg" alt="Vector"></div><div class="tablerfish-hook-YTMWjv" data-id="272:1726"><div class="group-2ty73Y" data-id="272:1727"><img class="vector-657n83 vector" data-id="272:1728" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-3.svg" alt="Vector"><img class="vector-EuflgW vector" data-id="272:1729" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-4.svg" alt="Vector"></div></div><div class="mau-mancing-dimana-YTMWjv sfprodisplay-regular-normal-black-20px" data-id="272:1730">Mau mancing dimana?</div><div class="tanggal-mancing-YTMWjv sfprodisplay-regular-normal-black-20px" data-id="272:1731">Tanggal Mancing</div><div class="jumlah-orang-YTMWjv sfprodisplay-regular-normal-black-20px" data-id="272:1732">Jumlah Orang</div></div><div class="group-17-5w4jgn" data-id="272:1733"><div class="card-hQoOjF" data-id="272:1734"><div class="group-16-QUDzm3 group-16" data-id="272:1735"><div class="card-tempat-pancing-NxNhfu card-tempat-pancing" data-id="272:1736"><div class="card-mVMFFu" data-id="272:1737"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1738">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-mVMFFu mask-group" data-id="272:1739" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1743">Pantai Ancol</div><div class="fasilitas" data-id="272:1744"><div class="group-5" data-id="272:1745"><div class="rectangle-22-vOfHtN rectangle-22" data-id="272:1746"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1747">Toilet</div></div><div class="group-6" data-id="272:1748"><div class="rectangle-22-xFdyWB rectangle-22" data-id="272:1749"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1750">Parkir</div></div><div class="group-7" data-id="272:1751"><div class="rectangle-22-p5dBDC rectangle-22" data-id="272:1752"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1753">Kantin</div></div><div class="group-8" data-id="272:1754"><div class="rectangle-22-lgPgIO rectangle-22" data-id="272:1755"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1756">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1757"><div class="milocation" data-id="272:1758"><img class="vector-IilSRI vector" data-id="272:1759" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1760">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1761"><div class="rectangle-22-r41R7u rectangle-22" data-id="272:1762"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1763">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1764"><div class="rectangle-23" data-id="272:1765"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1766">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1767"><div class="rectangle-22-1OxGhc rectangle-22" data-id="272:1768"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1769">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1770">(300)</div><div class="material-symbolsstar-outline" data-id="272:1771"><img class="vector-MzLJEb vector" data-id="272:1772" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div><div class="card-tempat-pancing-8DGnq5 card-tempat-pancing" data-id="272:1773"><div class="card-RDzLpp" data-id="272:1774"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1775">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-RDzLpp mask-group" data-id="272:1776" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1780">Pantai Ancol</div><div class="fasilitas" data-id="272:1781"><div class="group-5" data-id="272:1782"><div class="rectangle-22-Ov0zh0 rectangle-22" data-id="272:1783"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1784">Toilet</div></div><div class="group-6" data-id="272:1785"><div class="rectangle-22-Rgy0u1 rectangle-22" data-id="272:1786"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1787">Parkir</div></div><div class="group-7" data-id="272:1788"><div class="rectangle-22-uyEedf rectangle-22" data-id="272:1789"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1790">Kantin</div></div><div class="group-8" data-id="272:1791"><div class="rectangle-22-uYXjkz rectangle-22" data-id="272:1792"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1793">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1794"><div class="milocation" data-id="272:1795"><img class="vector-luHzg4 vector" data-id="272:1796" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1797">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1798"><div class="rectangle-22-1BFzDl rectangle-22" data-id="272:1799"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1800">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1801"><div class="rectangle-23" data-id="272:1802"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1803">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1804"><div class="rectangle-22-MnARKn rectangle-22" data-id="272:1805"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1806">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1807">(300)</div><div class="material-symbolsstar-outline" data-id="272:1808"><img class="vector-wLvx1y vector" data-id="272:1809" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div><div class="card-tempat-pancing-UEZ1Le card-tempat-pancing" data-id="272:1810"><div class="card-ZupfGn" data-id="272:1811"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1812">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-ZupfGn mask-group" data-id="272:1813" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1817">Pantai Ancol</div><div class="fasilitas" data-id="272:1818"><div class="group-5" data-id="272:1819"><div class="rectangle-22-6Rm1s6 rectangle-22" data-id="272:1820"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1821">Toilet</div></div><div class="group-6" data-id="272:1822"><div class="rectangle-22-rZ3iiS rectangle-22" data-id="272:1823"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1824">Parkir</div></div><div class="group-7" data-id="272:1825"><div class="rectangle-22-BB1REY rectangle-22" data-id="272:1826"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1827">Kantin</div></div><div class="group-8" data-id="272:1828"><div class="rectangle-22-3tQopZ rectangle-22" data-id="272:1829"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1830">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1831"><div class="milocation" data-id="272:1832"><img class="vector-ZOxWHu vector" data-id="272:1833" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1834">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1835"><div class="rectangle-22-o1B8RM rectangle-22" data-id="272:1836"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1837">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1838"><div class="rectangle-23" data-id="272:1839"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1840">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1841"><div class="rectangle-22-lniV2g rectangle-22" data-id="272:1842"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1843">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1844">(300)</div><div class="material-symbolsstar-outline" data-id="272:1845"><img class="vector-9xyR50 vector" data-id="272:1846" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div></div></div><div class="card-1ECCtd" data-id="272:1847"><div class="group-16-U6C03m group-16" data-id="272:1848"><div class="card-tempat-pancing-oYUSR1 card-tempat-pancing" data-id="272:1849"><div class="card-eBglZm" data-id="272:1850"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1851">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-eBglZm mask-group" data-id="272:1852" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-4@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1856">Pantai Ancol</div><div class="fasilitas" data-id="272:1857"><div class="group-5" data-id="272:1858"><div class="rectangle-22-ayhfqQ rectangle-22" data-id="272:1859"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1860">Toilet</div></div><div class="group-6" data-id="272:1861"><div class="rectangle-22-qsXvAW rectangle-22" data-id="272:1862"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1863">Parkir</div></div><div class="group-7" data-id="272:1864"><div class="rectangle-22-vONnIY rectangle-22" data-id="272:1865"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1866">Kantin</div></div><div class="group-8" data-id="272:1867"><div class="rectangle-22-tbJm7v rectangle-22" data-id="272:1868"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1869">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1870"><div class="milocation" data-id="272:1871"><img class="vector-XNsbj7 vector" data-id="272:1872" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1873">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1874"><div class="rectangle-22-saxm0V rectangle-22" data-id="272:1875"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1876">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1877"><div class="rectangle-23" data-id="272:1878"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1879">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1880"><div class="rectangle-22-qexUME rectangle-22" data-id="272:1881"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1882">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1883">(300)</div><div class="material-symbolsstar-outline" data-id="272:1884"><img class="vector-OxyZ7l vector" data-id="272:1885" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div><div class="card-tempat-pancing-UUrMcl card-tempat-pancing" data-id="272:1886"><div class="card-4XkDks" data-id="272:1887"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1888">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-4XkDks mask-group" data-id="272:1889" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-5@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1893">Pantai Ancol</div><div class="fasilitas" data-id="272:1894"><div class="group-5" data-id="272:1895"><div class="rectangle-22-DbLewj rectangle-22" data-id="272:1896"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1897">Toilet</div></div><div class="group-6" data-id="272:1898"><div class="rectangle-22-2ZxwCw rectangle-22" data-id="272:1899"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1900">Parkir</div></div><div class="group-7" data-id="272:1901"><div class="rectangle-22-XSkodC rectangle-22" data-id="272:1902"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1903">Kantin</div></div><div class="group-8" data-id="272:1904"><div class="rectangle-22-KtdXdS rectangle-22" data-id="272:1905"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1906">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1907"><div class="milocation" data-id="272:1908"><img class="vector-xQjZPu vector" data-id="272:1909" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1910">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1911"><div class="rectangle-22-XAG1tU rectangle-22" data-id="272:1912"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1913">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1914"><div class="rectangle-23" data-id="272:1915"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1916">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1917"><div class="rectangle-22-klrKH2 rectangle-22" data-id="272:1918"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1919">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1920">(300)</div><div class="material-symbolsstar-outline" data-id="272:1921"><img class="vector-iveijt vector" data-id="272:1922" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div><div class="card-tempat-pancing-Cad4I0 card-tempat-pancing" data-id="272:1923"><div class="card-IGcyT3" data-id="272:1924"></div><p class="deskripsi sfprodisplay-regular-normal-dove-gray-20px" data-id="272:1925">Spot memancing di laut dengan pemandangan Jakarta skyline yang indah</p><img class="mask-group-IGcyT3 mask-group" data-id="272:1926" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-5@2x.png" alt="Mask group"><div class="nama-tempat sfprodisplay-medium-black-33px" data-id="272:1930">Pantai Ancol</div><div class="fasilitas" data-id="272:1931"><div class="group-5" data-id="272:1932"><div class="rectangle-22-Fq0xza rectangle-22" data-id="272:1933"></div><div class="toilet sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1934">Toilet</div></div><div class="group-6" data-id="272:1935"><div class="rectangle-22-Zrp1Vi rectangle-22" data-id="272:1936"></div><div class="parkir sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1937">Parkir</div></div><div class="group-7" data-id="272:1938"><div class="rectangle-22-uCxBP7 rectangle-22" data-id="272:1939"></div><div class="kantin sfprodisplay-regular-normal-bay-of-many-17px" data-id="272:1940">Kantin</div></div><div class="group-8" data-id="272:1941"><div class="rectangle-22-7SWVkb rectangle-22" data-id="272:1942"></div><div class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px" data-id="272:1943">1+ Lainnya</div></div></div><div class="lokasi" data-id="272:1944"><div class="milocation" data-id="272:1945"><img class="vector-NURZ16 vector" data-id="272:1946" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div><div class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px" data-id="272:1947">Ancol, Jakarta barat</div></div><div class="harga" data-id="272:1948"><div class="rectangle-22-b6xRdH rectangle-22" data-id="272:1949"></div><div class="rp-50000hari sfprodisplay-normal-black-17px" data-id="272:1950">Rp. 50.000/hari</div></div><div class="button-detail" data-id="272:1951"><div class="rectangle-23" data-id="272:1952"></div><div class="lihat-detail-booking sfprodisplay-medium-white-20px" data-id="272:1953">Lihat detail &amp; Booking</div></div><div class="rate" data-id="272:1954"><div class="rectangle-22-3BzoFh rectangle-22" data-id="272:1955"></div><div class="x42 sfprodisplay-regular-normal-licorice-17px" data-id="272:1956">4.2</div><div class="x300 sfprodisplay-regular-normal-licorice-10px" data-id="272:1957">(300)</div><div class="material-symbolsstar-outline" data-id="272:1958"><img class="vector-GKiF10 vector" data-id="272:1959" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector"></div></div></div></div></div><img class="tempat-pemancingan-populer-hQoOjF" data-id="272:1960" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/tempat-pemancingan-populer.png" alt="Tempat Pemancingan Populer"></div><div class="carousel-ensik-5w4jgn" data-id="272:1961"><div class="frame-26-x1aSin" data-id="272:1962"><div class="ellipse-6-Uj3K9i" data-id="272:1963"></div><div class="ellipse-3-Uj3K9i" data-id="272:1964"></div><div class="ellipse-2-Uj3K9i" data-id="272:1965"></div><div class="ellipse-4-Uj3K9i" data-id="272:1966"></div><div class="ellipse-5-Uj3K9i" data-id="272:1967"></div></div><div class="group-27-x1aSin" data-id="272:1968"><div class="rectangle-35-KDJTS0 rectangle-35" data-id="272:1969"></div><img class="group-24-KDJTS0 group-24" data-id="272:1970" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png" alt="Group 24"><p class="teknik-mancing-adala-KDJTS0 teknik-mancing-adala" data-id="272:1976">Teknik Mancing adalah panduan lengkap yang membahas berbagai metode memancing, mulai dari teknik dasar hingga strategi tingkat lanjut. Di dalamnya terdapat penjelasan tentang cara memilih alat pancing yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi pemula yang ingin belajar dari awal maupun pemancing berpengalaman yang ingin memperdalam teknik mereka.</p><div class="baca-selengkapnya-KDJTS0 baca-selengkapnya" data-id="272:1977">Baca Selengkapnya →</div><div class="pancingan-terbaik" data-id="272:1978">Pancingan Terbaik</div></div><div class="group-26-x1aSin" data-id="272:1979"><div class="rectangle-35-BCwnoo rectangle-35" data-id="272:1980"></div><img class="group-24-BCwnoo group-24" data-id="272:1981" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png" alt="Group 24"><p class="teknik-mancing-adala-BCwnoo teknik-mancing-adala" data-id="272:1987">Teknik Mancing adalah panduan lengkap yang membahas berbagai metode memancing, mulai dari teknik dasar hingga strategi tingkat lanjut. Di dalamnya terdapat penjelasan tentang cara memilih alat pancing yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi pemula yang ingin belajar dari awal maupun pemancing berpengalaman yang ingin memperdalam teknik mereka.</p><div class="baca-selengkapnya-BCwnoo baca-selengkapnya" data-id="272:1988">Baca Selengkapnya →</div><div class="umpan-terbaik" data-id="272:1989">Umpan Terbaik</div></div><div class="group-28-x1aSin" data-id="272:1990"><div class="rectangle-35-FTH6YY rectangle-35" data-id="272:1991"></div><img class="group-24-FTH6YY group-24" data-id="272:1992" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png" alt="Group 24"><p class="teknik-mancing-adala-FTH6YY teknik-mancing-adala" data-id="272:1998">Teknik Mancing adalah panduan lengkap yang membahas berbagai metode memancing, mulai dari teknik dasar hingga strategi tingkat lanjut. Di dalamnya terdapat penjelasan tentang cara memilih alat pancing yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi pemula yang ingin belajar dari awal maupun pemancing berpengalaman yang ingin memperdalam teknik mereka.</p><div class="baca-selengkapnya-FTH6YY baca-selengkapnya" data-id="272:1999">Baca Selengkapnya →</div><div class="pancingan-terbaik" data-id="272:2000">Pancingan Terbaik</div></div><div class="group-29-x1aSin" data-id="272:2001"><div class="rectangle-35-oygiGY rectangle-35" data-id="272:2002"></div><img class="group-24-oygiGY group-24" data-id="272:2003" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png" alt="Group 24"><p class="teknik-mancing-adala-oygiGY teknik-mancing-adala" data-id="272:2009">Teknik Mancing adalah panduan lengkap yang membahas berbagai metode memancing, mulai dari teknik dasar hingga strategi tingkat lanjut. Di dalamnya terdapat penjelasan tentang cara memilih alat pancing yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi pemula yang ingin belajar dari awal maupun pemancing berpengalaman yang ingin memperdalam teknik mereka.</p><div class="baca-selengkapnya-oygiGY baca-selengkapnya" data-id="272:2010">Baca Selengkapnya →</div><div class="umpan-terbaik" data-id="272:2011">Umpan Terbaik</div></div><div class="group-25-x1aSin" data-id="272:2012"><div class="rectangle-35-Iexvxk rectangle-35" data-id="272:2013"></div><img class="group-24-Iexvxk group-24" data-id="272:2014" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png" alt="Group 24"><p class="teknik-mancing-adala-Iexvxk teknik-mancing-adala" data-id="272:2020">Teknik Mancing adalah panduan lengkap yang membahas berbagai metode memancing, mulai dari teknik dasar hingga strategi tingkat lanjut. Di dalamnya terdapat penjelasan tentang cara memilih alat pancing yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi pemula yang ingin belajar dari awal maupun pemancing berpengalaman yang ingin memperdalam teknik mereka.</p><div class="baca-selengkapnya-Iexvxk baca-selengkapnya" data-id="272:2021">Baca Selengkapnya →</div><div class="teknik-mancing-Iexvxk" data-id="272:2022">Teknik Mancing</div></div><div class="rectangle-47-x1aSin" data-id="272:2023"></div><div class="rectangle-48-x1aSin" data-id="272:2024"></div><img class="tips-tips-memancing-x1aSin" data-id="272:2025" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/tips---tips-memancing.png" alt="Tips - Tips Memancing"></div><div class="rectangle-50-5w4jgn" data-id="272:2026"></div><div class="group-37-5w4jgn" data-id="272:2027"><div class="rectangle-49-xGTvYp" data-id="272:2028"></div><div class="frame-36-xGTvYp" data-id="272:2029"><div class="content-qkjRZb" data-id="272:2030">Content</div><div class="beranda-qkjRZb beranda sfprodisplay-regular-normal-white-24px" data-id="272:2031">Beranda</div><div class="pesanan-saya-qkjRZb pesanan-saya sfprodisplay-regular-normal-white-24px" data-id="272:2032">Pesanan Saya</div><div class="ensiklopedia-qkjRZb ensiklopedia sfprodisplay-regular-normal-white-24px" data-id="272:2033">Ensiklopedia</div></div><div class="frame-37-xGTvYp" data-id="272:2034"><div class="contact-ajBW7w" data-id="272:2035">Contact</div><div class="x2332321-ajBW7w sfprodisplay-regular-normal-white-24px" data-id="272:2036">2332321</div><div class="emailgmailcom-ajBW7w sfprodisplay-regular-normal-white-24px" data-id="272:2037">email@gmail.com</div><div class="gasmancing-ajBW7w sfprodisplay-regular-normal-white-24px" data-id="272:2038">gasmancing</div></div><div class="logo-xGTvYp logo" data-id="272:2039"><h1 class="gas-mancing-ezzvzx gas-mancing" data-id="272:2040">Gas <br>Mancing</h1><div class="group-3-ezzvzx group-3" data-id="272:2041"><img class="vector-1-6WC9lM vector-1" data-id="272:2042" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png" alt="Vector 1"><div class="ellipse-1-6WC9lM" data-id="272:2043"></div></div></div></div><div class="navbar-5w4jgn" data-id="272:2069"><img class="rectangle-1-lGX5V1" data-id="272:2070" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/rectangle-1.svg" alt="Rectangle 1"><div class="icon-park-outlinepeople-lGX5V1 icon-park-outlinepeople" data-id="272:2071"><img class="vector-f2GQJU vector" data-id="272:2072" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-17.svg" alt="Vector"></div><div class="menu-lGX5V1" data-id="272:2073"><div class="beranda-O8elTd beranda" data-id="272:2074">Beranda</div><div class="pesanan-saya-O8elTd pesanan-saya sfprodisplay-regular-normal-white-24px" data-id="272:2075">Pesanan Saya</div><div class="ensiklopedia-O8elTd ensiklopedia sfprodisplay-regular-normal-white-24px" data-id="272:2076">Ensiklopedia</div></div><div class="logo-lGX5V1 logo" data-id="272:2077"><div class="gas-mancing-mdguin gas-mancing" data-id="272:2078">Gas Mancing</div><div class="group-3-mdguin group-3" data-id="272:2079"><img class="vector-1-NNBu1G vector-1" data-id="272:2080" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1-2.svg" alt="Vector 1"><div class="ellipse-1-NNBu1G" data-id="272:2081"></div></div></div></div><div class="group-62-5w4jgn" data-id="272:2108"><div class="group-30-Bl53FB" data-id="272:2091"><div class="card-lRvlxh" data-id="272:2092"></div><img class="polygon-1-lRvlxh" data-id="272:2093" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/polygon-1.svg" alt="Polygon 1"></div><div class="frame-23-Bl53FB" data-id="272:2094"><div class="nama-K6U4uz sfpro-medium-bay-of-many-18px" data-id="272:2095">Nama</div><div class="email-K6U4uz sfpro-medium-bay-of-many-18px" data-id="272:2096">Email</div><div class="no-telp-K6U4uz sfpro-medium-bay-of-many-18px" data-id="272:2097">No. Telp</div></div><div class="frame-24-Bl53FB" data-id="272:2098"><div class="log-out-H0qqyG" data-id="272:2099">Log Out</div><div class="edit-profile-H0qqyG" data-id="272:2100">Edit Profile</div></div><div class="group-3-Bl53FB group-3" data-id="272:2101"><img class="vector-1-jikSaG vector-1" data-id="272:2102" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1-3.svg" alt="Vector 1"><div class="ellipse-1-jikSaG" data-id="272:2103"></div></div><div class="group-31-Bl53FB" data-id="272:2104"><img class="vector-1-U8BmZc vector-1" data-id="272:2105" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1-3.svg" alt="Vector 1"><div class="ellipse-1-U8BmZc" data-id="272:2106"></div></div></div></div><script src="launchpad-js/launchpad-banner.js" async></script><script defer src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script></body></html>

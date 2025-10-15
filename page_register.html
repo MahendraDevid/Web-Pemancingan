@@ -1,0 +1,3900 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1920, maximum-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="https://animaproject.s3.amazonaws.com/home/favicon.png"
+    />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <script id="anima-load-script" src="load.js"></script>
+    <script id="anima-hotspots-script" src="hotspots.js"></script>
+    <script id="anima-overrides-script" src="overrides.js"></script>
+    <script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script>
+    <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+      @import url("https://fonts.googleapis.com/css?family=Inter:400,600");
+
+      @font-face {
+        font-family: "SF Pro Display-Semibold";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/62600488abc580a946ffeaea/fonts/fontsfree-net-sfprodisplay-semibold.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/62e5bd2f729e81c0f2cb0ddb/fonts/sf-pro-display-regular.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/673d1a3e765a9ad9f6b6550d/fonts/sf-pro-display-bold.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Medium";
+        font-style: normal;
+        font-weight: 500;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/64f7ed1586d1fc0125de8d9c/fonts/sf-pro-display-medium.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5efe6eb8e9407760a5475b2d/SF-Pro.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro-Semibold";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/64f035e70ffb37c7c0f32912/fonts/sf-pro.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Heavy";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/59c2ff4decf833000b61c9ae/SF-Pro-Display-Heavy.otf")
+          format("opentype");
+      }
+
+      @font-face {
+        font-family: "SF Pro Display-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/634e6b4b723b28ff69092d1b/fonts/fontsfree-net-sfprodisplay-bold.ttf")
+          format("truetype");
+      }
+      /* The following line is used to measure usage of this code. You can remove it if you want. */
+      @import url("https://px.animaapp.com/68ef6e18053e3da6fa1f8c0b.68ef6e19053e3da6fa1f8c0e.2KgIQfB.hch.png");
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .component-wrapper a {
+        display: contents;
+        pointer-events: auto;
+        text-decoration: none;
+      }
+
+      .component-wrapper * {
+        -webkit-font-smoothing: antialiased;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe {
+        pointer-events: auto;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .screen a {
+        display: contents;
+        text-decoration: none;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .container-center-vertical > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .container-center-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        pointer-events: none;
+        width: 100%;
+      }
+
+      .container-center-horizontal > * {
+        flex-shrink: 0;
+        pointer-events: auto;
+      }
+
+      .auto-animated div {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated input {
+        --z-index: -1;
+        opacity: 0;
+        position: absolute;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay-base {
+        display: none;
+        height: 100%;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .overlay-base.animate-appear {
+        align-items: center;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+      }
+
+      .overlay-base.animate-disappear {
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+        display: block;
+        opacity: 1;
+        pointer-events: none;
+      }
+
+      .overlay-base.animate-disappear * {
+        pointer-events: none;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+
+      .align-self-flex-center {
+        align-self: flex-center;
+      }
+
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        pointer-events: none;
+        visibility: hidden;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --alto: #d9d9d9;
+        --bay-of-many: #133e87;
+        --black: #000000;
+        --bon-jour: #dfdfdf;
+        --cultured-pearl: #f5f5f5;
+        --dove-gray: #6d6d6d;
+        --gray: #808080;
+        --licorice: #141414;
+        --perano: #a9c8ff;
+        --quill-gray: #d6d6d6;
+        --sonic-silver: #737373;
+        --travertine: #fefce8;
+        --white: #ffffff;
+
+        --font-size-l: 16px;
+        --font-size-m: 15px;
+        --font-size-s: 12px;
+        --font-size-xl: 17px;
+        --font-size-xxl: 20px;
+        --font-size-xxxl: 24px;
+        --font-size-xxxxl: 33px;
+
+        --font-family-inter: "Inter", Helvetica;
+        --font-family-sf_pro-bold: "SF Pro-Bold", Helvetica;
+        --font-family-sf_pro-regular: "SF Pro-Regular", Helvetica;
+        --font-family-sf_pro-semibold: "SF Pro-Semibold", Helvetica;
+        --font-family-sf_pro_display-bold: "SF Pro Display-Bold", Helvetica;
+        --font-family-sf_pro_display-heavy: "SF Pro Display-Heavy", Helvetica;
+        --font-family-sf_pro_display-medium: "SF Pro Display-Medium", Helvetica;
+        --font-family-sf_pro_display-regular: "SF Pro Display-Regular",
+          Helvetica;
+        --font-family-sf_pro_display-semibold: "SF Pro Display-Semibold",
+          Helvetica;
+      }
+      .sfprodisplay-regular-normal-bay-of-many-17px {
+        color: var(--bay-of-many);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-white-24px {
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-dove-gray-20px {
+        color: var(--dove-gray);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-medium-black-33px {
+        color: var(--black);
+        font-family: var(--font-family-sf_pro_display-medium);
+        font-size: var(--font-size-xxxxl);
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      .sfprodisplay-regular-normal-sonic-silver-17px {
+        color: var(--sonic-silver);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-dove-gray-16px {
+        color: var(--dove-gray);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-l);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-normal-black-17px {
+        color: var(--black);
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-xl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-medium-white-20px {
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-medium);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      .sfprodisplay-regular-normal-licorice-17px {
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-licorice-10px {
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .inter-normal-black-15px {
+        color: var(--black);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      .sfprodisplay-regular-normal-black-20px {
+        color: var(--black);
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xxl);
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      :root {
+      }
+
+      /* screen - page-register */
+
+      .page-register {
+        background-color: #cbdceb;
+        margin: 0px;
+        min-height: 1080px;
+        min-width: 1920px;
+        overflow: hidden;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .page-register .mask-group-HJhlX5 {
+        height: 606px;
+        left: calc(50% - 960px);
+        top: 74px;
+        width: 1920px;
+      }
+
+      .page-register .isi-konten-HJhlX5 {
+        background-color: transparent;
+        box-shadow: 0px 4px 10px #00000040;
+        height: 118px;
+        left: calc(50% - 405px);
+        position: absolute;
+        top: 183px;
+        width: 814px;
+      }
+
+      .page-register .temukan-spot-pemancingan-KGgHmi {
+        background-color: transparent;
+        height: 72px;
+        left: calc(50% - 379px);
+        position: absolute;
+        top: 10px;
+        width: 767px;
+      }
+
+      .page-register .navbar-HJhlX5 {
+        background-color: transparent;
+        height: 1134px;
+        left: 0px;
+        position: absolute;
+        top: -1060px;
+        width: 1920px;
+      }
+
+      .page-register .rectangle-1-ejF3UQ {
+        background-color: transparent;
+        height: 109px;
+        left: 0px;
+        position: absolute;
+        top: 1060px;
+        width: 1920px;
+      }
+
+      .page-register .menu-ejF3UQ {
+        background-color: transparent;
+        box-shadow: 0px 4px 4px #00000040;
+        height: 24px;
+        left: calc(50% + 69px);
+        position: absolute;
+        top: 1085px;
+        width: 470px;
+      }
+
+      .page-register .beranda-VdlspF {
+        align-items: center;
+        color: #f3f3e0;
+        display: flex;
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 400;
+        height: 20px;
+        justify-content: center;
+        left: calc(50% - 235px);
+        line-height: normal;
+        position: absolute;
+        top: 0px;
+        width: 93px;
+      }
+
+      .page-register .pesanan-saya-VdlspF {
+        align-items: center;
+        display: flex;
+        height: 24px;
+        justify-content: center;
+        left: calc(50% - 92px);
+        line-height: normal;
+        position: absolute;
+        top: 0px;
+        white-space: nowrap;
+        width: 142px;
+      }
+
+      .page-register .ensiklopedia-VdlspF {
+        align-items: center;
+        display: flex;
+        height: 24px;
+        justify-content: center;
+        left: calc(50% + 100px);
+        position: absolute;
+        top: 0px;
+        white-space: nowrap;
+        width: 129px;
+      }
+
+      .page-register .logo-ejF3UQ {
+        height: 1115px;
+        left: 110px;
+        top: calc(50% - 567px);
+        width: 259px;
+      }
+
+      .page-register .gas-mancing-jVCSNo {
+        font-family: var(--font-family-sf_pro-bold);
+        font-size: 32px;
+        left: 65px;
+        line-height: normal;
+        top: calc(50% - 557px);
+        white-space: nowrap;
+        width: 192px;
+      }
+
+      .page-register .group-3-jVCSNo {
+        height: 29px;
+        left: 0px;
+        top: 1086px;
+        width: 53px;
+      }
+
+      .page-register .vector-1-6miYJx {
+        height: 29px;
+        left: 0px;
+        top: 0px;
+        width: 53px;
+      }
+
+      .page-register .ellipse-1-6miYJx {
+        background-color: var(--white);
+        border-radius: 2.46px/2.29px;
+        height: 5px;
+        left: 40px;
+        position: absolute;
+        top: 9px;
+        width: 5px;
+      }
+
+      .page-register .masuk-ejF3UQ {
+        height: 37px;
+        left: 1518px;
+        top: 1078px;
+        width: 132px;
+      }
+
+      .page-register .rectangle-51-tZYFqL {
+        background-color: transparent;
+        border: 2px solid;
+        border-color: #608bc1;
+        border-radius: 5px;
+        height: 37px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 130px;
+      }
+
+      .page-register .masuk-tZYFqL {
+        align-items: center;
+        display: flex;
+        height: 29px;
+        justify-content: center;
+        left: 31px;
+        letter-spacing: 0px;
+        line-height: normal;
+        text-align: left;
+        top: 4px;
+        width: auto;
+      }
+
+      .page-register .daftar-ejF3UQ {
+        height: 37px;
+        left: 1662px;
+        top: 1078px;
+        width: 132px;
+      }
+
+      .page-register .rectangle-52-HWNhyi {
+        background-color: #608bc1;
+        border-radius: 5px;
+        height: 37px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 130px;
+      }
+
+      .page-register .daftar-HWNhyi {
+        align-items: center;
+        display: flex;
+        height: 29px;
+        justify-content: center;
+        left: 33px;
+        letter-spacing: 0px;
+        line-height: normal;
+        text-align: left;
+        top: 4px;
+        width: auto;
+      }
+
+      .page-register .shadow-HJhlX5 {
+        background: linear-gradient(
+          180deg,
+          rgba(203, 220, 235, 0) 21%,
+          rgba(203, 220, 235, 1) 85%
+        );
+        background-color: transparent;
+        height: 246px;
+        left: calc(50% - 960px);
+        position: absolute;
+        top: 434px;
+        width: 1920px;
+      }
+
+      .page-register .search-HJhlX5 {
+        background-color: transparent;
+        box-shadow: 5px 10px 15px #00000040;
+        height: 69px;
+        left: calc(50% - 572px);
+        position: absolute;
+        top: 580px;
+        width: 1149px;
+      }
+
+      .page-register .rectangle-11-xWO4YS {
+        background-color: var(--bay-of-many);
+        border-radius: 10px;
+        height: 68px;
+        left: calc(50% - 575px);
+        position: absolute;
+        top: 1px;
+        width: 1143px;
+      }
+
+      .page-register .rectangle-12-xWO4YS {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 62px;
+        left: 5px;
+        position: absolute;
+        top: 4px;
+        width: 391px;
+      }
+
+      .page-register .rectangle-13-xWO4YS {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 62px;
+        left: 403px;
+        position: absolute;
+        top: 4px;
+        width: 328px;
+      }
+
+      .page-register .rectangle-14-xWO4YS {
+        background-color: var(--cultured-pearl);
+        border-radius: 10px;
+        height: 62px;
+        left: 739px;
+        position: absolute;
+        top: 4px;
+        width: 289px;
+      }
+
+      .page-register .rectangle-15-xWO4YS {
+        background-color: #cbdceb;
+        border-radius: 10px;
+        height: 62px;
+        left: 1036px;
+        position: absolute;
+        top: 4px;
+        width: 104px;
+      }
+
+      .page-register .uiwdate-xWO4YS {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 28px;
+        left: 412px;
+        overflow: hidden;
+        position: absolute;
+        top: 21px;
+        width: 28px;
+      }
+
+      .page-register .vector-lBmk2N {
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+      }
+
+      .page-register .icon-park-outlinepeople-xWO4YS {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 35px;
+        left: 747px;
+        overflow: hidden;
+        position: absolute;
+        top: 17px;
+        width: 35px;
+      }
+
+      .page-register .vector-2nTZx1 {
+        height: 80.71%;
+        left: 9.64%;
+        top: 9.64%;
+        width: 80.71%;
+      }
+
+      .page-register .material-symbolssearch-rounded-xWO4YS {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 48px;
+        left: 1064px;
+        overflow: hidden;
+        position: absolute;
+        top: 14px;
+        width: 48px;
+      }
+
+      .page-register .vector-Kpm0N9 {
+        height: 73.23%;
+        left: 12.5%;
+        top: 12.5%;
+        width: 73.23%;
+      }
+
+      .page-register .tablerfish-hook-xWO4YS {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 62px;
+        left: 5px;
+        overflow: hidden;
+        position: absolute;
+        top: 0px;
+        width: 62px;
+      }
+
+      .page-register .group-sUP1J0 {
+        aspect-ratio: 0.705882;
+        background-color: transparent;
+        height: 45.57%;
+        left: 33.78%;
+        position: relative;
+        top: 32.17%;
+        width: 32.17%;
+      }
+
+      .page-register .vector-m4Pyh4 {
+        height: 75.29%;
+        left: -7.5%;
+        top: 30%;
+        width: 98.34%;
+      }
+
+      .page-register .vector-eiVeWo {
+        height: 45.88%;
+        left: 59.17%;
+        top: -5.29%;
+        width: 48.34%;
+      }
+
+      .page-register .mau-mancing-dimana-xWO4YS {
+        background-color: transparent;
+        height: auto;
+        left: 60px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 23px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .page-register .tanggal-mancing-xWO4YS {
+        background-color: transparent;
+        height: auto;
+        left: 450px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 23px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .page-register .jumlah-orang-xWO4YS {
+        background-color: transparent;
+        height: auto;
+        left: 788px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 23px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .page-register .group-17-HJhlX5 {
+        background-color: transparent;
+        height: 1297px;
+        left: calc(50% - 761px);
+        position: absolute;
+        top: 771px;
+        width: 1524px;
+      }
+
+      .page-register .card-nHzg23 {
+        background-color: transparent;
+        height: 555px;
+        left: 2px;
+        position: absolute;
+        top: 742px;
+        width: 1520px;
+      }
+
+      .page-register .group-16-eUSWUi {
+        top: 0px;
+      }
+
+      .page-register .card-tempat-pancing-6B3PcL {
+        left: 534px;
+        top: 0px;
+      }
+
+      .page-register .card-Az7jqk {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-Az7jqk {
+        height: 250px;
+        left: -15898px;
+        top: -6371px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-FARUD1 {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-OSFvxC {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-pmD1aT {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-SJxaIQ {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-KR4Xyo {
+        height: 83.33%;
+        left: -101177.64%;
+        top: -49759.26%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-tmnNgk {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-OTHXtG {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-6dNL9k {
+        height: 79.17%;
+        left: -84343.96%;
+        top: -40447.81%;
+        width: 83.33%;
+      }
+
+      .page-register .card-tempat-pancing-LxroT0 {
+        left: 0px;
+        top: 4px;
+      }
+
+      .page-register .card-GB2jZx {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-GB2jZx {
+        height: 250px;
+        left: -15898px;
+        top: -6371px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-Tx8NuB {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-SIdsMk {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-5LELRH {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-XV54Am {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-bLgAxj {
+        height: 83.33%;
+        left: -97932.32%;
+        top: -49783.57%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-VToGvU {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-GcTXhm {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-UpreO4 {
+        height: 79.17%;
+        left: -81693.21%;
+        top: -40467.66%;
+        width: 83.33%;
+      }
+
+      .page-register .card-tempat-pancing-cuLSOd {
+        left: 1070px;
+        top: 4px;
+      }
+
+      .page-register .card-UhOo7P {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-UhOo7P {
+        height: 250px;
+        left: -15898px;
+        top: -6371px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-6pT04O {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-ui5SM0 {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-wnT5Qs {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-HRyvsc {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-UGxAUJ {
+        height: 83.33%;
+        left: -104435.11%;
+        top: -49783.57%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-Qq7mke {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-cYDIey {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-iI2qqr {
+        height: 79.17%;
+        left: -87004.63%;
+        top: -40467.66%;
+        width: 83.33%;
+      }
+
+      .page-register .card-xttn2V {
+        background-color: transparent;
+        height: 555px;
+        left: 0px;
+        position: absolute;
+        top: 139px;
+        width: 1520px;
+      }
+
+      .page-register .group-16-RQFyUk {
+        top: -0px;
+      }
+
+      .page-register .card-tempat-pancing-aywtY6 {
+        left: 534px;
+        top: 0px;
+      }
+
+      .page-register .card-f1JoPh {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-f1JoPh {
+        height: 170px;
+        left: 0px;
+        top: 0px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-9FKXbN {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-NZt6LU {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-0iQuG9 {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-w1Vt4S {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-GqDMeS {
+        height: 83.33%;
+        left: -101165.49%;
+        top: -46094.6%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-1dsnSU {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-UxbcDC {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-fGNMZR {
+        height: 79.17%;
+        left: -84334.03%;
+        top: -37454.55%;
+        width: 83.33%;
+      }
+
+      .page-register .card-tempat-pancing-E3ZBQD {
+        left: 0px;
+        top: 4px;
+      }
+
+      .page-register .card-ZzWEQE {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-ZzWEQE {
+        height: 166px;
+        left: 0px;
+        top: 0px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-p1v3gg {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-qO5SaH {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-ZpW43q {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-swyFY9 {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-J0t8vH {
+        height: 83.33%;
+        left: -97920.17%;
+        top: -46118.91%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-8nVoqG {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-41bpJw {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-cseZyH {
+        height: 79.17%;
+        left: -81683.29%;
+        top: -37474.4%;
+        width: 83.33%;
+      }
+
+      .page-register .card-tempat-pancing-R4beuk {
+        left: 1070px;
+        top: 4px;
+      }
+
+      .page-register .card-pb1zx1 {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 550px;
+        left: 0px;
+        position: absolute;
+        top: 1px;
+        width: 450px;
+      }
+
+      .page-register .mask-group-pb1zx1 {
+        height: 166px;
+        left: 0px;
+        top: 0px;
+        width: 450px;
+      }
+
+      .page-register .rectangle-22-AQF232 {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-kjsCqi {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-TkI2RR {
+        background-color: var(--perano);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 62px;
+      }
+
+      .page-register .rectangle-22-4caxwl {
+        background-color: var(--bon-jour);
+        height: 22px;
+        left: 1px;
+        top: 1px;
+        width: 90px;
+      }
+
+      .page-register .vector-k6iOtA {
+        height: 83.33%;
+        left: -104422.96%;
+        top: -46118.91%;
+        width: 66.67%;
+      }
+
+      .page-register .rectangle-22-xyMnhc {
+        background-color: var(--quill-gray);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 136px;
+      }
+
+      .page-register .rectangle-22-3JA3QC {
+        background-color: var(--travertine);
+        height: 30px;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+      }
+
+      .page-register .vector-xDwWPJ {
+        height: 79.17%;
+        left: -86994.71%;
+        top: -37474.4%;
+        width: 83.33%;
+      }
+
+      .page-register .tempat-pemancingan-populer-nHzg23 {
+        background-color: transparent;
+        height: 36px;
+        left: calc(50% - 263px);
+        position: absolute;
+        top: 9px;
+        width: 524px;
+      }
+
+      .page-register .carousel-ensik-HJhlX5 {
+        background-color: transparent;
+        height: 566px;
+        left: calc(50% - 960px);
+        position: absolute;
+        top: 2196px;
+        width: 1924px;
+      }
+
+      .page-register .frame-26-eIhZUf {
+        align-items: center;
+        background-color: transparent;
+        box-shadow: 0px 7px 10px #00000040;
+        display: inline-flex;
+        gap: 25px;
+        left: calc(50% - 101px);
+        position: absolute;
+        top: 546px;
+      }
+
+      .page-register .ellipse-6-c8uPBn {
+        background-color: var(--alto);
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        width: 20px;
+      }
+
+      .page-register .ellipse-3-c8uPBn {
+        background-color: #d3d3d3;
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        width: 20px;
+      }
+
+      .page-register .ellipse-2-c8uPBn {
+        background-color: #676766;
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        width: 20px;
+      }
+
+      .page-register .ellipse-4-c8uPBn {
+        background-color: var(--alto);
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        width: 20px;
+      }
+
+      .page-register .ellipse-5-c8uPBn {
+        background-color: var(--alto);
+        border-radius: 10px;
+        height: 20px;
+        position: relative;
+        width: 20px;
+      }
+
+      .page-register .group-27-eIhZUf {
+        aspect-ratio: 1.066667;
+        background-color: transparent;
+        height: 300px;
+        left: calc(50% + 517px);
+        position: absolute;
+        top: 150px;
+        width: 326px;
+      }
+
+      .page-register .rectangle-35-Okd6vI {
+        height: 300px;
+        left: calc(50% - 163px);
+        width: 320px;
+      }
+
+      .page-register .group-24-Okd6vI {
+        height: 39px;
+        left: -15879px;
+        top: -6353px;
+        width: 42px;
+      }
+
+      .page-register .teknik-mancing-adala-Okd6vI {
+        font-family: var(--font-family-sf_pro-regular);
+        font-size: var(--font-size-s);
+        left: calc(50% - 143px);
+        top: 101px;
+        width: 280px;
+      }
+
+      .page-register .baca-selengkapnya-Okd6vI {
+        font-family: var(--font-family-sf_pro-semibold);
+        font-size: 14px;
+        left: 23px;
+        top: 257px;
+        width: 138px;
+      }
+
+      .page-register .group-26-eIhZUf {
+        aspect-ratio: 1.05;
+        background-color: transparent;
+        height: 350px;
+        left: calc(50% + 174px);
+        position: absolute;
+        top: 125px;
+        width: 374px;
+      }
+
+      .page-register .rectangle-35-qS7KaL {
+        height: 350px;
+        left: calc(50% - 187px);
+        width: 368px;
+      }
+
+      .page-register .group-24-qS7KaL {
+        height: 45px;
+        left: -15879px;
+        top: -6353px;
+        width: 48px;
+      }
+
+      .page-register .teknik-mancing-adala-qS7KaL {
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        left: calc(50% - 165px);
+        top: 97px;
+        width: 325px;
+      }
+
+      .page-register .baca-selengkapnya-qS7KaL {
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-l);
+        left: 24px;
+        top: 311px;
+        white-space: nowrap;
+        width: 319px;
+      }
+
+      .page-register .group-28-eIhZUf {
+        aspect-ratio: 1.066667;
+        background-color: transparent;
+        height: 300px;
+        left: calc(50% - 823px);
+        position: absolute;
+        top: 150px;
+        width: 326px;
+      }
+
+      .page-register .rectangle-35-zLmRCC {
+        height: 300px;
+        left: calc(50% - 163px);
+        width: 320px;
+      }
+
+      .page-register .group-24-zLmRCC {
+        height: 39px;
+        left: -15879px;
+        top: -6353px;
+        width: 42px;
+      }
+
+      .page-register .teknik-mancing-adala-zLmRCC {
+        font-family: var(--font-family-sf_pro-regular);
+        font-size: var(--font-size-s);
+        left: calc(50% - 143px);
+        top: 101px;
+        width: 280px;
+      }
+
+      .page-register .baca-selengkapnya-zLmRCC {
+        font-family: var(--font-family-sf_pro-semibold);
+        font-size: 14px;
+        left: 23px;
+        top: 257px;
+        width: 138px;
+      }
+
+      .page-register .group-29-eIhZUf {
+        aspect-ratio: 1.05;
+        background-color: transparent;
+        height: 350px;
+        left: calc(50% - 546px);
+        position: absolute;
+        top: 125px;
+        width: 374px;
+      }
+
+      .page-register .rectangle-35-VXxqlv {
+        height: 350px;
+        left: calc(50% - 187px);
+        width: 368px;
+      }
+
+      .page-register .group-24-VXxqlv {
+        height: 45px;
+        left: -15879px;
+        top: -6353px;
+        width: 48px;
+      }
+
+      .page-register .teknik-mancing-adala-VXxqlv {
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-m);
+        left: calc(50% - 165px);
+        top: 97px;
+        width: 325px;
+      }
+
+      .page-register .baca-selengkapnya-VXxqlv {
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-l);
+        left: 24px;
+        top: 311px;
+        white-space: nowrap;
+        width: 319px;
+      }
+
+      .page-register .group-25-eIhZUf {
+        background-color: transparent;
+        height: 400px;
+        left: calc(50% - 210px);
+        position: absolute;
+        top: 100px;
+        width: 426px;
+      }
+
+      .page-register .rectangle-35-JP5pfW {
+        height: 400px;
+        left: calc(50% - 213px);
+        width: 420px;
+      }
+
+      .page-register .group-24-JP5pfW {
+        height: 57px;
+        left: -15876px;
+        top: -6351px;
+        width: 61px;
+      }
+
+      .page-register .teknik-mancing-adala-JP5pfW {
+        font-family: var(--font-family-sf_pro_display-regular);
+        font-size: var(--font-size-xl);
+        left: calc(50% - 188px);
+        top: 128px;
+        width: 371px;
+      }
+
+      .page-register .baca-selengkapnya-JP5pfW {
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: var(--font-size-xl);
+        left: 27px;
+        top: 355px;
+        width: 365px;
+      }
+
+      .page-register .teknik-mancing-JP5pfW {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 99px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 30px;
+        white-space: nowrap;
+        width: auto;
+      }
+
+      .page-register .rectangle-47-eIhZUf {
+        background: linear-gradient(
+          270deg,
+          rgba(203, 220, 235, 0) 0%,
+          rgba(203, 220, 235, 1) 100%
+        );
+        background-color: transparent;
+        height: 400px;
+        left: 1358px;
+        position: absolute;
+        top: 100px;
+        transform: rotate(180deg);
+        width: 564px;
+      }
+
+      .page-register .rectangle-48-eIhZUf {
+        background: linear-gradient(
+          270deg,
+          rgba(203, 220, 235, 0) 0%,
+          rgba(203, 220, 235, 1) 100%
+        );
+        background-color: transparent;
+        height: 400px;
+        left: 0px;
+        position: absolute;
+        top: 100px;
+        width: 564px;
+      }
+
+      .page-register .tips-tips-memancing-eIhZUf {
+        aspect-ratio: 11.490909;
+        background-color: transparent;
+        height: 55px;
+        left: calc(50% - 16216px);
+        position: absolute;
+        top: -6371px;
+        width: 632px;
+      }
+
+      .page-register .rectangle-50-HJhlX5 {
+        background: linear-gradient(
+          180deg,
+          rgba(203, 220, 235, 0) 0%,
+          rgba(203, 220, 235, 1) 62%
+        );
+        background-color: transparent;
+        height: 253px;
+        left: 0px;
+        position: absolute;
+        top: 2987px;
+        width: 1920px;
+      }
+
+      .page-register .group-37-HJhlX5 {
+        background-color: transparent;
+        height: 1246px;
+        left: 0px;
+        position: absolute;
+        top: 1994px;
+        width: 1920px;
+      }
+
+      .page-register .rectangle-49-0A0XcZ {
+        background: linear-gradient(
+          90deg,
+          rgba(19, 62, 135, 1) 8%,
+          rgba(96, 139, 193, 1) 100%
+        );
+        background-color: transparent;
+        height: 253px;
+        left: 0px;
+        position: absolute;
+        top: 993px;
+        width: 1920px;
+      }
+
+      .page-register .frame-36-0A0XcZ {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        left: calc(50% - 70px);
+        position: absolute;
+        top: 1030px;
+        width: 141px;
+      }
+
+      .page-register .content-SiJHaC {
+        align-self: stretch;
+        background-color: transparent;
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-heavy);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 40px;
+        margin-top: -1px;
+        position: relative;
+        text-align: left;
+      }
+
+      .page-register .beranda-SiJHaC {
+        align-self: stretch;
+        height: 35px;
+        line-height: 40px;
+        position: relative;
+      }
+
+      .page-register .pesanan-saya-SiJHaC {
+        align-self: stretch;
+        line-height: 40px;
+        position: relative;
+      }
+
+      .page-register .ensiklopedia-SiJHaC {
+        align-self: stretch;
+        position: relative;
+      }
+
+      .page-register .frame-37-0A0XcZ {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        left: calc(50% + 483px);
+        position: absolute;
+        top: 1030px;
+        width: 184px;
+      }
+
+      .page-register .contact-ff02bz {
+        align-self: stretch;
+        background-color: transparent;
+        color: var(--white);
+        font-family: var(--font-family-sf_pro_display-heavy);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0px;
+        line-height: 40px;
+        margin-top: -1px;
+        position: relative;
+        text-align: left;
+      }
+
+      .page-register .x2332321-ff02bz {
+        align-self: stretch;
+        background-color: transparent;
+        height: 35px;
+        letter-spacing: 0px;
+        line-height: 40px;
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .page-register .emailgmailcom-ff02bz {
+        background-color: transparent;
+        letter-spacing: 0px;
+        line-height: normal;
+        margin-right: -9px;
+        position: relative;
+        text-align: left;
+        width: 193px;
+      }
+
+      .page-register .gasmancing-ff02bz {
+        background-color: transparent;
+        letter-spacing: 0px;
+        line-height: 40px;
+        margin-right: -9px;
+        position: relative;
+        text-align: left;
+        width: 193px;
+      }
+
+      .page-register .logo-0A0XcZ {
+        height: 1151px;
+        left: calc(50% - 701px);
+        top: calc(50% - 623px);
+        width: 268px;
+      }
+
+      .page-register .gas-mancing-xfszEn {
+        font-family: var(--font-family-sf_pro_display-bold);
+        font-size: 36px;
+        left: calc(50% - 11px);
+        line-height: 40px;
+        top: calc(50% - 576px);
+        width: 143px;
+      }
+
+      .page-register .group-3-xfszEn {
+        height: 56px;
+        left: 0px;
+        top: 1095px;
+        width: 102px;
+      }
+
+      .page-register .vector-1-4Peig3 {
+        height: 56px;
+        left: -15898px;
+        top: -6371px;
+        width: 102px;
+      }
+
+      .page-register .ellipse-1-4Peig3 {
+        background-color: var(--white);
+        border-radius: 4.75px/4.43px;
+        height: 9px;
+        left: 77px;
+        position: absolute;
+        top: 16px;
+        width: 9px;
+      }
+
+      .page-register .rectangle-69-HJhlX5 {
+        background-color: #00000066;
+        height: 1094px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 1920px;
+      }
+
+      .page-register .form-sign-up-HJhlX5 {
+        background-color: transparent;
+        height: 600px;
+        left: calc(50% - 377px);
+        position: absolute;
+        top: calc(50% - 300px);
+        width: 754px;
+      }
+
+      .page-register .card-JPh1SM {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+      }
+
+      .page-register .frame-21-JPh1SM {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 27px;
+        height: 63.5%;
+        left: 8.14%;
+        position: absolute;
+        top: 19.64%;
+        width: 83.72%;
+      }
+
+      .page-register .group-20-RxZciY {
+        background-color: transparent;
+        height: 75px;
+        margin-right: -2px;
+        position: relative;
+        width: 633.211181640625px;
+      }
+
+      .page-register .email-tHmkJy {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        width: 631px;
+      }
+
+      .page-register .card-tHmkJy {
+        background-color: var(--cultured-pearl);
+        border: 1px solid;
+        border-color: var(--black);
+        border-radius: 10px;
+        height: 51px;
+        left: 0px;
+        position: absolute;
+        top: 24px;
+        width: 631px;
+      }
+
+      .page-register .group-22-RxZciY {
+        background-color: transparent;
+        height: 75px;
+        margin-right: -2px;
+        position: relative;
+        width: 633.211181640625px;
+      }
+
+      .page-register .username-xER0ti {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        width: 631px;
+      }
+
+      .page-register .card-xER0ti {
+        background-color: var(--cultured-pearl);
+        border: 1px solid;
+        border-color: var(--black);
+        border-radius: 10px;
+        height: 51px;
+        left: 0px;
+        position: absolute;
+        top: 24px;
+        width: 631px;
+      }
+
+      .page-register .group-23-RxZciY {
+        background-color: transparent;
+        height: 75px;
+        margin-right: -2px;
+        position: relative;
+        width: 633.211181640625px;
+      }
+
+      .page-register .nomor-telepon-DUmMLv {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        width: 631px;
+      }
+
+      .page-register .card-DUmMLv {
+        background-color: var(--cultured-pearl);
+        border: 1px solid;
+        border-color: var(--black);
+        border-radius: 10px;
+        height: 51px;
+        left: 0px;
+        position: absolute;
+        top: 24px;
+        width: 631px;
+      }
+
+      .page-register .group-21-RxZciY {
+        background-color: transparent;
+        height: 75px;
+        margin-right: -2px;
+        position: relative;
+        width: 633.211181640625px;
+      }
+
+      .page-register .password-t6fG6E {
+        background-color: transparent;
+        height: auto;
+        left: 0px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 0px;
+        width: 631px;
+      }
+
+      .page-register .card-t6fG6E {
+        background-color: var(--cultured-pearl);
+        border: 1px solid;
+        border-color: var(--black);
+        border-radius: 10px;
+        height: 51px;
+        left: 0px;
+        position: absolute;
+        top: 24px;
+        width: 631px;
+      }
+
+      .page-register .daftar-akun-baru-JPh1SM {
+        background-color: transparent;
+        color: var(--bay-of-many);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 600;
+        height: 4.17%;
+        left: calc(50% - 99px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 14.83%;
+        white-space: nowrap;
+        width: 199px;
+      }
+
+      .page-register .sudah-ada-akun-masuk-JPh1SM {
+        background-color: transparent;
+        color: transparent;
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-l);
+        font-style: normal;
+        font-weight: 600;
+        height: 0px;
+        left: calc(50% - 97px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: left;
+        top: 94.67%;
+        white-space: nowrap;
+        width: 193px;
+      }
+
+      .page-register .span0-tnx9Xs {
+        color: var(--licorice);
+        font-style: normal;
+      }
+
+      .page-register .span1-tnx9Xs {
+        color: #0000ff;
+        font-style: normal;
+        text-decoration: underline;
+      }
+
+      .page-register .group-22-JPh1SM {
+        background-color: transparent;
+        height: 7.5%;
+        left: 8.09%;
+        position: absolute;
+        top: 86.33%;
+        width: 83.98%;
+      }
+
+      .page-register .card-g1HuEN {
+        background-color: var(--bay-of-many);
+        border-radius: 10px;
+        height: 99.42%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 99.68%;
+      }
+
+      .page-register .daftar-g1HuEN {
+        align-items: center;
+        color: var(--white);
+        display: flex;
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-xxxl);
+        font-style: normal;
+        font-weight: 400;
+        height: 100%;
+        justify-content: center;
+        left: calc(50% - 39px);
+        letter-spacing: 0px;
+        line-height: normal;
+        text-align: left;
+        top: 0px;
+        width: 76px;
+      }
+
+      .page-register .group-3-JPh1SM {
+        height: 52px;
+        left: 329px;
+        top: 24px;
+        width: 95px;
+      }
+
+      .page-register .vector-1-enR9aO {
+        height: 52px;
+        left: 0px;
+        top: 0px;
+        width: 95px;
+      }
+
+      .page-register .ellipse-1-enR9aO {
+        background-color: #315696;
+        border-radius: 4.4px/4.11px;
+        height: 8px;
+        left: 72px;
+        position: absolute;
+        top: 15px;
+        width: 9px;
+      }
+
+      .page-register .ancol-jakarta-barat {
+        background-color: transparent;
+        height: auto;
+        left: 16px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 137px;
+      }
+
+      .page-register .baca-selengkapnya {
+        background-color: transparent;
+        color: var(--licorice);
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+      }
+
+      .page-register .beranda {
+        background-color: transparent;
+        letter-spacing: 0px;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .page-register .button-detail {
+        background-color: transparent;
+        height: 45px;
+        left: 17px;
+        position: absolute;
+        top: 491px;
+        width: 415px;
+      }
+
+      .page-register .card-tempat-pancing {
+        background-color: transparent;
+        height: 551px;
+        position: absolute;
+        width: 454px;
+      }
+
+      .page-register .daftar {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .deskripsi {
+        background-color: transparent;
+        height: auto;
+        left: 20px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 387px;
+        width: 411px;
+      }
+
+      .page-register .ensiklopedia {
+        background-color: transparent;
+        letter-spacing: 0px;
+        line-height: normal;
+        text-align: left;
+      }
+
+      .page-register .fasilitas {
+        background-color: transparent;
+        height: 22px;
+        left: 18px;
+        position: absolute;
+        top: 452px;
+        width: 293px;
+      }
+
+      .page-register .gas-mancing {
+        background-color: transparent;
+        color: var(--white);
+        font-style: normal;
+        font-weight: 700;
+        height: auto;
+        letter-spacing: 0px;
+        position: absolute;
+        text-align: left;
+      }
+
+      .page-register .group-16 {
+        background-color: transparent;
+        box-shadow: 10px 15px 15px #00000040;
+        height: 555px;
+        left: 0px;
+        position: relative;
+        width: 1520px;
+      }
+
+      .page-register .group-24 {
+        aspect-ratio: 1.074074;
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .group-3 {
+        aspect-ratio: 1.83003;
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .group-5 {
+        background-color: transparent;
+        height: 22px;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 64px;
+      }
+
+      .page-register .group-6 {
+        background-color: transparent;
+        height: 22px;
+        left: 68px;
+        position: absolute;
+        top: 0px;
+        width: 64px;
+      }
+
+      .page-register .group-7 {
+        background-color: transparent;
+        height: 22px;
+        left: 135px;
+        position: absolute;
+        top: 0px;
+        width: 64px;
+      }
+
+      .page-register .group-8 {
+        background-color: transparent;
+        height: 22px;
+        left: 203px;
+        position: absolute;
+        top: 0px;
+        width: 92px;
+      }
+
+      .page-register .harga {
+        background-color: transparent;
+        height: 30px;
+        left: 305px;
+        position: absolute;
+        top: 14px;
+        width: 138px;
+      }
+
+      .page-register .kantin {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        left: calc(50% - 25px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 1px;
+        width: 47px;
+      }
+
+      .page-register .lihat-detail-booking {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 45px;
+        justify-content: center;
+        left: 1px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 0px;
+        width: 413px;
+      }
+
+      .page-register .logo {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .lokasi {
+        background-color: transparent;
+        height: 19px;
+        left: 18px;
+        position: absolute;
+        top: 303px;
+        width: 155px;
+      }
+
+      .page-register .mask-group {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .masuk {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .material-symbolsstar-outline {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 20px;
+        left: 2px;
+        overflow: hidden;
+        position: absolute;
+        top: 5px;
+        width: 20px;
+      }
+
+      .page-register .milocation {
+        aspect-ratio: 1;
+        background-color: transparent;
+        height: 16px;
+        left: 1px;
+        overflow: hidden;
+        position: absolute;
+        top: 2px;
+        width: 16px;
+      }
+
+      .page-register .nama-tempat {
+        background-color: transparent;
+        height: auto;
+        left: 20px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 261px;
+        width: 177px;
+      }
+
+      .page-register .pancingan-terbaik {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro-semibold);
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 75px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 24px;
+        white-space: nowrap;
+        width: 179px;
+      }
+
+      .page-register .parkir {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        left: calc(50% - 21px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 1px;
+        width: 41px;
+      }
+
+      .page-register .pesanan-saya {
+        background-color: transparent;
+        letter-spacing: 0px;
+        text-align: left;
+      }
+
+      .page-register .rate {
+        background-color: transparent;
+        box-shadow: 0px 2px 10px #00000040;
+        height: 30px;
+        left: 358px;
+        position: absolute;
+        top: 261px;
+        width: 84px;
+      }
+
+      .page-register .rectangle-22 {
+        border-radius: 5px;
+        position: absolute;
+      }
+
+      .page-register .rectangle-23 {
+        background-color: var(--bay-of-many);
+        border-radius: 5px;
+        height: 45px;
+        left: 1px;
+        position: absolute;
+        top: 0px;
+        width: 412px;
+      }
+
+      .page-register .rectangle-35 {
+        background-color: var(--cultured-pearl);
+        border-radius: 20px;
+        box-shadow: 0px 15px 15px #00000040;
+        position: absolute;
+        top: 0px;
+      }
+
+      .page-register .rp-50000hari {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 30px;
+        justify-content: center;
+        left: calc(50% - 61px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 0px;
+        width: 123px;
+      }
+
+      .page-register .teknik-mancing-adala {
+        background-color: transparent;
+        color: var(--gray);
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+      }
+
+      .page-register .toilet {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        left: calc(50% - 20px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 1px;
+        width: 38px;
+      }
+
+      .page-register .umpan-terbaik {
+        background-color: transparent;
+        color: var(--licorice);
+        font-family: var(--font-family-sf_pro_display-semibold);
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 400;
+        height: auto;
+        left: 59px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 23px;
+        width: 222px;
+      }
+
+      .page-register .vector {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .vector-1 {
+        background-color: transparent;
+        position: absolute;
+      }
+
+      .page-register .x1-lainnya {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        left: calc(50% - 40px);
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 1px;
+        width: 78px;
+      }
+
+      .page-register .x300 {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 16px;
+        justify-content: center;
+        left: 49px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 7px;
+        width: 25px;
+      }
+
+      .page-register .x42 {
+        align-items: center;
+        background-color: transparent;
+        display: flex;
+        height: 30px;
+        justify-content: center;
+        left: 24px;
+        letter-spacing: 0px;
+        line-height: normal;
+        position: absolute;
+        text-align: justify;
+        top: 0px;
+        width: 25px;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; background: #cbdceb">
+    <input type="hidden" id="anPageName" name="page" value="page-register" />
+    <div class="page-register screen" data-id="272:1164">
+      <img
+        class="mask-group-HJhlX5 mask-group"
+        data-id="272:1165"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef72f1f97592f1339630c5/img/mask-group.png"
+        alt="Mask group"
+      />
+      <div class="isi-konten-HJhlX5" data-id="272:1168">
+        <img
+          class="temukan-spot-pemancingan-KGgHmi"
+          data-id="272:1169"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef72f1f97592f1339630c5/img/temukan-spot-pemancingan.png"
+          alt="Temukan Spot Pemancingan"
+        />
+      </div>
+      <div class="navbar-HJhlX5" data-id="272:1171">
+        <img
+          class="rectangle-1-ejF3UQ"
+          data-id="272:1172"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef72f1f97592f1339630c5/img/rectangle-1.svg"
+          alt="Rectangle 1"
+        />
+        <div class="menu-ejF3UQ" data-id="272:1173">
+          <div class="beranda-VdlspF beranda" data-id="272:1174">Beranda</div>
+          <div
+            class="pesanan-saya-VdlspF pesanan-saya sfprodisplay-regular-normal-white-24px"
+            data-id="272:1175"
+          >
+            Pesanan Saya
+          </div>
+          <div
+            class="ensiklopedia-VdlspF ensiklopedia sfprodisplay-regular-normal-white-24px"
+            data-id="272:1176"
+          >
+            Ensiklopedia
+          </div>
+        </div>
+        <div class="logo-ejF3UQ logo" data-id="272:1177">
+          <div class="gas-mancing-jVCSNo gas-mancing" data-id="272:1178">
+            Gas Mancing
+          </div>
+          <div class="group-3-jVCSNo group-3" data-id="272:1179">
+            <img
+              class="vector-1-6miYJx vector-1"
+              data-id="272:1180"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+              anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1-2.svg"
+              alt="Vector 1"
+            />
+            <div class="ellipse-1-6miYJx" data-id="272:1181"></div>
+          </div>
+        </div>
+        <div class="masuk-ejF3UQ masuk" data-id="272:1182">
+          <div class="rectangle-51-tZYFqL" data-id="272:1183"></div>
+          <div
+            class="masuk-tZYFqL masuk sfprodisplay-regular-normal-white-24px"
+            data-id="272:1184"
+          >
+            Masuk
+          </div>
+        </div>
+        <div class="daftar-ejF3UQ daftar" data-id="272:1185">
+          <div class="rectangle-52-HWNhyi" data-id="272:1186"></div>
+          <div
+            class="daftar-HWNhyi daftar sfprodisplay-regular-normal-white-24px"
+            data-id="272:1187"
+          >
+            Daftar
+          </div>
+        </div>
+      </div>
+      <div class="shadow-HJhlX5" data-id="272:1188"></div>
+      <div class="search-HJhlX5" data-id="272:1189">
+        <div class="rectangle-11-xWO4YS" data-id="272:1190"></div>
+        <div class="rectangle-12-xWO4YS" data-id="272:1191"></div>
+        <div class="rectangle-13-xWO4YS" data-id="272:1192"></div>
+        <div class="rectangle-14-xWO4YS" data-id="272:1193"></div>
+        <div class="rectangle-15-xWO4YS" data-id="272:1194"></div>
+        <div class="uiwdate-xWO4YS" data-id="272:1195">
+          <img
+            class="vector-lBmk2N vector"
+            data-id="272:1196"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector.svg"
+            alt="Vector"
+          />
+        </div>
+        <div class="icon-park-outlinepeople-xWO4YS" data-id="272:1197">
+          <img
+            class="vector-2nTZx1 vector"
+            data-id="272:1198"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-1.svg"
+            alt="Vector"
+          />
+        </div>
+        <div class="material-symbolssearch-rounded-xWO4YS" data-id="272:1199">
+          <img
+            class="vector-Kpm0N9 vector"
+            data-id="272:1200"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-2.svg"
+            alt="Vector"
+          />
+        </div>
+        <div class="tablerfish-hook-xWO4YS" data-id="272:1201">
+          <div class="group-sUP1J0" data-id="272:1202">
+            <img
+              class="vector-m4Pyh4 vector"
+              data-id="272:1203"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+              anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-3.svg"
+              alt="Vector"
+            /><img
+              class="vector-eiVeWo vector"
+              data-id="272:1204"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+              anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef72f1f97592f1339630c5/img/vector-5.svg"
+              alt="Vector"
+            />
+          </div>
+        </div>
+        <div
+          class="mau-mancing-dimana-xWO4YS sfprodisplay-regular-normal-black-20px"
+          data-id="272:1205"
+        >
+          Mau mancing dimana?
+        </div>
+        <div
+          class="tanggal-mancing-xWO4YS sfprodisplay-regular-normal-black-20px"
+          data-id="272:1206"
+        >
+          Tanggal Mancing
+        </div>
+        <div
+          class="jumlah-orang-xWO4YS sfprodisplay-regular-normal-black-20px"
+          data-id="272:1207"
+        >
+          Jumlah Orang
+        </div>
+      </div>
+      <div class="group-17-HJhlX5" data-id="272:1208">
+        <div class="card-nHzg23" data-id="272:1209">
+          <div class="group-16-eUSWUi group-16" data-id="272:1210">
+            <div
+              class="card-tempat-pancing-6B3PcL card-tempat-pancing"
+              data-id="272:1211"
+            >
+              <div class="card-Az7jqk" data-id="272:1212"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1213"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-Az7jqk mask-group"
+                data-id="272:1214"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1218"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1219">
+                <div class="group-5" data-id="272:1220">
+                  <div
+                    class="rectangle-22-FARUD1 rectangle-22"
+                    data-id="272:1221"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1222"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1223">
+                  <div
+                    class="rectangle-22-OSFvxC rectangle-22"
+                    data-id="272:1224"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1225"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1226">
+                  <div
+                    class="rectangle-22-pmD1aT rectangle-22"
+                    data-id="272:1227"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1228"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1229">
+                  <div
+                    class="rectangle-22-SJxaIQ rectangle-22"
+                    data-id="272:1230"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1231"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1232">
+                <div class="milocation" data-id="272:1233">
+                  <img
+                    class="vector-KR4Xyo vector"
+                    data-id="272:1234"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1235"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1236">
+                <div
+                  class="rectangle-22-tmnNgk rectangle-22"
+                  data-id="272:1237"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1238"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1239">
+                <div class="rectangle-23" data-id="272:1240"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1241"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1242">
+                <div
+                  class="rectangle-22-OTHXtG rectangle-22"
+                  data-id="272:1243"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1244"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1245"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1246">
+                  <img
+                    class="vector-6dNL9k vector"
+                    data-id="272:1247"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-tempat-pancing-LxroT0 card-tempat-pancing"
+              data-id="272:1248"
+            >
+              <div class="card-GB2jZx" data-id="272:1249"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1250"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-GB2jZx mask-group"
+                data-id="272:1251"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1255"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1256">
+                <div class="group-5" data-id="272:1257">
+                  <div
+                    class="rectangle-22-Tx8NuB rectangle-22"
+                    data-id="272:1258"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1259"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1260">
+                  <div
+                    class="rectangle-22-SIdsMk rectangle-22"
+                    data-id="272:1261"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1262"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1263">
+                  <div
+                    class="rectangle-22-5LELRH rectangle-22"
+                    data-id="272:1264"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1265"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1266">
+                  <div
+                    class="rectangle-22-XV54Am rectangle-22"
+                    data-id="272:1267"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1268"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1269">
+                <div class="milocation" data-id="272:1270">
+                  <img
+                    class="vector-bLgAxj vector"
+                    data-id="272:1271"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1272"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1273">
+                <div
+                  class="rectangle-22-VToGvU rectangle-22"
+                  data-id="272:1274"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1275"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1276">
+                <div class="rectangle-23" data-id="272:1277"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1278"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1279">
+                <div
+                  class="rectangle-22-GcTXhm rectangle-22"
+                  data-id="272:1280"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1281"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1282"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1283">
+                  <img
+                    class="vector-UpreO4 vector"
+                    data-id="272:1284"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-tempat-pancing-cuLSOd card-tempat-pancing"
+              data-id="272:1285"
+            >
+              <div class="card-UhOo7P" data-id="272:1286"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1287"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-UhOo7P mask-group"
+                data-id="272:1288"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1292"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1293">
+                <div class="group-5" data-id="272:1294">
+                  <div
+                    class="rectangle-22-6pT04O rectangle-22"
+                    data-id="272:1295"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1296"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1297">
+                  <div
+                    class="rectangle-22-ui5SM0 rectangle-22"
+                    data-id="272:1298"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1299"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1300">
+                  <div
+                    class="rectangle-22-wnT5Qs rectangle-22"
+                    data-id="272:1301"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1302"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1303">
+                  <div
+                    class="rectangle-22-HRyvsc rectangle-22"
+                    data-id="272:1304"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1305"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1306">
+                <div class="milocation" data-id="272:1307">
+                  <img
+                    class="vector-UGxAUJ vector"
+                    data-id="272:1308"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1309"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1310">
+                <div
+                  class="rectangle-22-Qq7mke rectangle-22"
+                  data-id="272:1311"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1312"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1313">
+                <div class="rectangle-23" data-id="272:1314"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1315"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1316">
+                <div
+                  class="rectangle-22-cYDIey rectangle-22"
+                  data-id="272:1317"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1318"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1319"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1320">
+                  <img
+                    class="vector-iI2qqr vector"
+                    data-id="272:1321"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-xttn2V" data-id="272:1322">
+          <div class="group-16-RQFyUk group-16" data-id="272:1323">
+            <div
+              class="card-tempat-pancing-aywtY6 card-tempat-pancing"
+              data-id="272:1324"
+            >
+              <div class="card-f1JoPh" data-id="272:1325"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1326"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-f1JoPh mask-group"
+                data-id="272:1327"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-4@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1331"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1332">
+                <div class="group-5" data-id="272:1333">
+                  <div
+                    class="rectangle-22-9FKXbN rectangle-22"
+                    data-id="272:1334"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1335"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1336">
+                  <div
+                    class="rectangle-22-NZt6LU rectangle-22"
+                    data-id="272:1337"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1338"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1339">
+                  <div
+                    class="rectangle-22-0iQuG9 rectangle-22"
+                    data-id="272:1340"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1341"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1342">
+                  <div
+                    class="rectangle-22-w1Vt4S rectangle-22"
+                    data-id="272:1343"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1344"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1345">
+                <div class="milocation" data-id="272:1346">
+                  <img
+                    class="vector-GqDMeS vector"
+                    data-id="272:1347"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1348"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1349">
+                <div
+                  class="rectangle-22-1dsnSU rectangle-22"
+                  data-id="272:1350"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1351"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1352">
+                <div class="rectangle-23" data-id="272:1353"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1354"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1355">
+                <div
+                  class="rectangle-22-UxbcDC rectangle-22"
+                  data-id="272:1356"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1357"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1358"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1359">
+                  <img
+                    class="vector-fGNMZR vector"
+                    data-id="272:1360"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-tempat-pancing-E3ZBQD card-tempat-pancing"
+              data-id="272:1361"
+            >
+              <div class="card-ZzWEQE" data-id="272:1362"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1363"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-ZzWEQE mask-group"
+                data-id="272:1364"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-5@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1368"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1369">
+                <div class="group-5" data-id="272:1370">
+                  <div
+                    class="rectangle-22-p1v3gg rectangle-22"
+                    data-id="272:1371"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1372"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1373">
+                  <div
+                    class="rectangle-22-qO5SaH rectangle-22"
+                    data-id="272:1374"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1375"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1376">
+                  <div
+                    class="rectangle-22-ZpW43q rectangle-22"
+                    data-id="272:1377"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1378"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1379">
+                  <div
+                    class="rectangle-22-swyFY9 rectangle-22"
+                    data-id="272:1380"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1381"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1382">
+                <div class="milocation" data-id="272:1383">
+                  <img
+                    class="vector-J0t8vH vector"
+                    data-id="272:1384"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1385"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1386">
+                <div
+                  class="rectangle-22-8nVoqG rectangle-22"
+                  data-id="272:1387"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1388"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1389">
+                <div class="rectangle-23" data-id="272:1390"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1391"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1392">
+                <div
+                  class="rectangle-22-41bpJw rectangle-22"
+                  data-id="272:1393"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1394"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1395"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1396">
+                  <img
+                    class="vector-cseZyH vector"
+                    data-id="272:1397"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-tempat-pancing-R4beuk card-tempat-pancing"
+              data-id="272:1398"
+            >
+              <div class="card-pb1zx1" data-id="272:1399"></div>
+              <p
+                class="deskripsi sfprodisplay-regular-normal-dove-gray-20px"
+                data-id="272:1400"
+              >
+                Spot memancing di laut dengan pemandangan Jakarta skyline yang
+                indah
+              </p>
+              <img
+                class="mask-group-pb1zx1 mask-group"
+                data-id="272:1401"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/mask-group-5@2x.png"
+                alt="Mask group"
+              />
+              <div
+                class="nama-tempat sfprodisplay-medium-black-33px"
+                data-id="272:1405"
+              >
+                Pantai Ancol
+              </div>
+              <div class="fasilitas" data-id="272:1406">
+                <div class="group-5" data-id="272:1407">
+                  <div
+                    class="rectangle-22-AQF232 rectangle-22"
+                    data-id="272:1408"
+                  ></div>
+                  <div
+                    class="toilet sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1409"
+                  >
+                    Toilet
+                  </div>
+                </div>
+                <div class="group-6" data-id="272:1410">
+                  <div
+                    class="rectangle-22-kjsCqi rectangle-22"
+                    data-id="272:1411"
+                  ></div>
+                  <div
+                    class="parkir sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1412"
+                  >
+                    Parkir
+                  </div>
+                </div>
+                <div class="group-7" data-id="272:1413">
+                  <div
+                    class="rectangle-22-TkI2RR rectangle-22"
+                    data-id="272:1414"
+                  ></div>
+                  <div
+                    class="kantin sfprodisplay-regular-normal-bay-of-many-17px"
+                    data-id="272:1415"
+                  >
+                    Kantin
+                  </div>
+                </div>
+                <div class="group-8" data-id="272:1416">
+                  <div
+                    class="rectangle-22-4caxwl rectangle-22"
+                    data-id="272:1417"
+                  ></div>
+                  <div
+                    class="x1-lainnya sfprodisplay-regular-normal-sonic-silver-17px"
+                    data-id="272:1418"
+                  >
+                    1+ Lainnya
+                  </div>
+                </div>
+              </div>
+              <div class="lokasi" data-id="272:1419">
+                <div class="milocation" data-id="272:1420">
+                  <img
+                    class="vector-k6iOtA vector"
+                    data-id="272:1421"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+                <div
+                  class="ancol-jakarta-barat sfprodisplay-regular-normal-dove-gray-16px"
+                  data-id="272:1422"
+                >
+                  Ancol, Jakarta barat
+                </div>
+              </div>
+              <div class="harga" data-id="272:1423">
+                <div
+                  class="rectangle-22-xyMnhc rectangle-22"
+                  data-id="272:1424"
+                ></div>
+                <div
+                  class="rp-50000hari sfprodisplay-normal-black-17px"
+                  data-id="272:1425"
+                >
+                  Rp. 50.000/hari
+                </div>
+              </div>
+              <div class="button-detail" data-id="272:1426">
+                <div class="rectangle-23" data-id="272:1427"></div>
+                <div
+                  class="lihat-detail-booking sfprodisplay-medium-white-20px"
+                  data-id="272:1428"
+                >
+                  Lihat detail &amp; Booking
+                </div>
+              </div>
+              <div class="rate" data-id="272:1429">
+                <div
+                  class="rectangle-22-3JA3QC rectangle-22"
+                  data-id="272:1430"
+                ></div>
+                <div
+                  class="x42 sfprodisplay-regular-normal-licorice-17px"
+                  data-id="272:1431"
+                >
+                  4.2
+                </div>
+                <div
+                  class="x300 sfprodisplay-regular-normal-licorice-10px"
+                  data-id="272:1432"
+                >
+                  (300)
+                </div>
+                <div class="material-symbolsstar-outline" data-id="272:1433">
+                  <img
+                    class="vector-xDwWPJ vector"
+                    data-id="272:1434"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+                    alt="Vector"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          class="tempat-pemancingan-populer-nHzg23"
+          data-id="272:1435"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/tempat-pemancingan-populer.png"
+          alt="Tempat Pemancingan Populer"
+        />
+      </div>
+      <div class="carousel-ensik-HJhlX5" data-id="272:1436">
+        <div class="frame-26-eIhZUf" data-id="272:1437">
+          <div class="ellipse-6-c8uPBn" data-id="272:1438"></div>
+          <div class="ellipse-3-c8uPBn" data-id="272:1439"></div>
+          <div class="ellipse-2-c8uPBn" data-id="272:1440"></div>
+          <div class="ellipse-4-c8uPBn" data-id="272:1441"></div>
+          <div class="ellipse-5-c8uPBn" data-id="272:1442"></div>
+        </div>
+        <div class="group-27-eIhZUf" data-id="272:1443">
+          <div
+            class="rectangle-35-Okd6vI rectangle-35"
+            data-id="272:1444"
+          ></div>
+          <img
+            class="group-24-Okd6vI group-24"
+            data-id="272:1445"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png"
+            alt="Group 24"
+          />
+          <p
+            class="teknik-mancing-adala-Okd6vI teknik-mancing-adala"
+            data-id="272:1451"
+          >
+            Teknik Mancing adalah panduan lengkap yang membahas berbagai metode
+            memancing, mulai dari teknik dasar hingga strategi tingkat lanjut.
+            Di dalamnya terdapat penjelasan tentang cara memilih alat pancing
+            yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi
+            berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi
+            pemula yang ingin belajar dari awal maupun pemancing berpengalaman
+            yang ingin memperdalam teknik mereka.
+          </p>
+          <div
+            class="baca-selengkapnya-Okd6vI baca-selengkapnya"
+            data-id="272:1452"
+          >
+            Baca Selengkapnya →
+          </div>
+          <div class="pancingan-terbaik" data-id="272:1453">
+            Pancingan Terbaik
+          </div>
+        </div>
+        <div class="group-26-eIhZUf" data-id="272:1454">
+          <div
+            class="rectangle-35-qS7KaL rectangle-35"
+            data-id="272:1455"
+          ></div>
+          <img
+            class="group-24-qS7KaL group-24"
+            data-id="272:1456"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png"
+            alt="Group 24"
+          />
+          <p
+            class="teknik-mancing-adala-qS7KaL teknik-mancing-adala"
+            data-id="272:1462"
+          >
+            Teknik Mancing adalah panduan lengkap yang membahas berbagai metode
+            memancing, mulai dari teknik dasar hingga strategi tingkat lanjut.
+            Di dalamnya terdapat penjelasan tentang cara memilih alat pancing
+            yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi
+            berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi
+            pemula yang ingin belajar dari awal maupun pemancing berpengalaman
+            yang ingin memperdalam teknik mereka.
+          </p>
+          <div
+            class="baca-selengkapnya-qS7KaL baca-selengkapnya"
+            data-id="272:1463"
+          >
+            Baca Selengkapnya →
+          </div>
+          <div class="umpan-terbaik" data-id="272:1464">Umpan Terbaik</div>
+        </div>
+        <div class="group-28-eIhZUf" data-id="272:1465">
+          <div
+            class="rectangle-35-zLmRCC rectangle-35"
+            data-id="272:1466"
+          ></div>
+          <img
+            class="group-24-zLmRCC group-24"
+            data-id="272:1467"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png"
+            alt="Group 24"
+          />
+          <p
+            class="teknik-mancing-adala-zLmRCC teknik-mancing-adala"
+            data-id="272:1473"
+          >
+            Teknik Mancing adalah panduan lengkap yang membahas berbagai metode
+            memancing, mulai dari teknik dasar hingga strategi tingkat lanjut.
+            Di dalamnya terdapat penjelasan tentang cara memilih alat pancing
+            yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi
+            berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi
+            pemula yang ingin belajar dari awal maupun pemancing berpengalaman
+            yang ingin memperdalam teknik mereka.
+          </p>
+          <div
+            class="baca-selengkapnya-zLmRCC baca-selengkapnya"
+            data-id="272:1474"
+          >
+            Baca Selengkapnya →
+          </div>
+          <div class="pancingan-terbaik" data-id="272:1475">
+            Pancingan Terbaik
+          </div>
+        </div>
+        <div class="group-29-eIhZUf" data-id="272:1476">
+          <div
+            class="rectangle-35-VXxqlv rectangle-35"
+            data-id="272:1477"
+          ></div>
+          <img
+            class="group-24-VXxqlv group-24"
+            data-id="272:1478"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png"
+            alt="Group 24"
+          />
+          <p
+            class="teknik-mancing-adala-VXxqlv teknik-mancing-adala"
+            data-id="272:1484"
+          >
+            Teknik Mancing adalah panduan lengkap yang membahas berbagai metode
+            memancing, mulai dari teknik dasar hingga strategi tingkat lanjut.
+            Di dalamnya terdapat penjelasan tentang cara memilih alat pancing
+            yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi
+            berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi
+            pemula yang ingin belajar dari awal maupun pemancing berpengalaman
+            yang ingin memperdalam teknik mereka.
+          </p>
+          <div
+            class="baca-selengkapnya-VXxqlv baca-selengkapnya"
+            data-id="272:1485"
+          >
+            Baca Selengkapnya →
+          </div>
+          <div class="umpan-terbaik" data-id="272:1486">Umpan Terbaik</div>
+        </div>
+        <div class="group-25-eIhZUf" data-id="272:1487">
+          <div
+            class="rectangle-35-JP5pfW rectangle-35"
+            data-id="272:1488"
+          ></div>
+          <img
+            class="group-24-JP5pfW group-24"
+            data-id="272:1489"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/group-24@2x.png"
+            alt="Group 24"
+          />
+          <p
+            class="teknik-mancing-adala-JP5pfW teknik-mancing-adala"
+            data-id="272:1495"
+          >
+            Teknik Mancing adalah panduan lengkap yang membahas berbagai metode
+            memancing, mulai dari teknik dasar hingga strategi tingkat lanjut.
+            Di dalamnya terdapat penjelasan tentang cara memilih alat pancing
+            yang tepat, jenis umpan, teknik melempar, hingga trik menghadapi
+            berbagai kondisi air dan target ikan. Ensiklopedia ini cocok bagi
+            pemula yang ingin belajar dari awal maupun pemancing berpengalaman
+            yang ingin memperdalam teknik mereka.
+          </p>
+          <div
+            class="baca-selengkapnya-JP5pfW baca-selengkapnya"
+            data-id="272:1496"
+          >
+            Baca Selengkapnya →
+          </div>
+          <div class="teknik-mancing-JP5pfW" data-id="272:1497">
+            Teknik Mancing
+          </div>
+        </div>
+        <div class="rectangle-47-eIhZUf" data-id="272:1498"></div>
+        <div class="rectangle-48-eIhZUf" data-id="272:1499"></div>
+        <img
+          class="tips-tips-memancing-eIhZUf"
+          data-id="272:1500"
+          src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/tips---tips-memancing.png"
+          alt="Tips - Tips Memancing"
+        />
+      </div>
+      <div class="rectangle-50-HJhlX5" data-id="272:1501"></div>
+      <div class="group-37-HJhlX5" data-id="272:1502">
+        <div class="rectangle-49-0A0XcZ" data-id="272:1503"></div>
+        <div class="frame-36-0A0XcZ" data-id="272:1504">
+          <div class="content-SiJHaC" data-id="272:1505">Content</div>
+          <div
+            class="beranda-SiJHaC beranda sfprodisplay-regular-normal-white-24px"
+            data-id="272:1506"
+          >
+            Beranda
+          </div>
+          <div
+            class="pesanan-saya-SiJHaC pesanan-saya sfprodisplay-regular-normal-white-24px"
+            data-id="272:1507"
+          >
+            Pesanan Saya
+          </div>
+          <div
+            class="ensiklopedia-SiJHaC ensiklopedia sfprodisplay-regular-normal-white-24px"
+            data-id="272:1508"
+          >
+            Ensiklopedia
+          </div>
+        </div>
+        <div class="frame-37-0A0XcZ" data-id="272:1509">
+          <div class="contact-ff02bz" data-id="272:1510">Contact</div>
+          <div
+            class="x2332321-ff02bz sfprodisplay-regular-normal-white-24px"
+            data-id="272:1511"
+          >
+            2332321
+          </div>
+          <div
+            class="emailgmailcom-ff02bz sfprodisplay-regular-normal-white-24px"
+            data-id="272:1512"
+          >
+            email@gmail.com
+          </div>
+          <div
+            class="gasmancing-ff02bz sfprodisplay-regular-normal-white-24px"
+            data-id="272:1513"
+          >
+            gasmancing
+          </div>
+        </div>
+        <div class="logo-0A0XcZ logo" data-id="272:1514">
+          <h1 class="gas-mancing-xfszEn gas-mancing" data-id="272:1515">
+            Gas <br />Mancing
+          </h1>
+          <div class="group-3-xfszEn group-3" data-id="272:1516">
+            <img
+              class="vector-1-4Peig3 vector-1"
+              data-id="272:1517"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+              anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef714cf97592f1339630bd/img/vector-5@2x.png"
+              alt="Vector 1"
+            />
+            <div class="ellipse-1-4Peig3" data-id="272:1518"></div>
+          </div>
+        </div>
+      </div>
+      <div class="rectangle-69-HJhlX5" data-id="272:1519"></div>
+      <div class="form-sign-up-HJhlX5" data-id="272:1666">
+        <div class="card-JPh1SM" data-id="272:1667"></div>
+        <div class="frame-21-JPh1SM" data-id="272:1668">
+          <div class="group-20-RxZciY" data-id="272:1669">
+            <div
+              class="email-tHmkJy inter-normal-black-15px"
+              data-id="272:1670"
+            >
+              Email
+            </div>
+            <div class="card-tHmkJy" data-id="272:1671"></div>
+          </div>
+          <div class="group-22-RxZciY" data-id="272:1672">
+            <div
+              class="username-xER0ti inter-normal-black-15px"
+              data-id="272:1673"
+            >
+              Username
+            </div>
+            <div class="card-xER0ti" data-id="272:1674"></div>
+          </div>
+          <div class="group-23-RxZciY" data-id="272:1675">
+            <div
+              class="nomor-telepon-DUmMLv inter-normal-black-15px"
+              data-id="272:1676"
+            >
+              Nomor Telepon
+            </div>
+            <div class="card-DUmMLv" data-id="272:1677"></div>
+          </div>
+          <div class="group-21-RxZciY" data-id="272:1678">
+            <div
+              class="password-t6fG6E inter-normal-black-15px"
+              data-id="272:1679"
+            >
+              Password
+            </div>
+            <div class="card-t6fG6E" data-id="272:1680"></div>
+          </div>
+        </div>
+        <div class="daftar-akun-baru-JPh1SM" data-id="272:1681">
+          Daftar Akun Baru
+        </div>
+        <div class="sudah-ada-akun-masuk-JPh1SM" data-id="272:1685">
+          <span class="span0-tnx9Xs">Sudah ada akun? </span
+          ><span class="span1-tnx9Xs">Masuk</span>
+        </div>
+        <div class="group-22-JPh1SM" data-id="272:1686">
+          <div class="card-g1HuEN" data-id="272:1687"></div>
+          <div class="daftar-g1HuEN daftar" data-id="272:1688">Daftar</div>
+        </div>
+        <div class="group-3-JPh1SM group-3" data-id="272:1534">
+          <img
+            class="vector-1-enR9aO vector-1"
+            data-id="272:1535"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            anima-src="https://cdn.animaapp.com/projects/68ef6e1a053e3da6fa1f8c10/releases/68ef72f1f97592f1339630c5/img/vector-1-2.svg"
+            alt="Vector 1"
+          />
+          <div class="ellipse-1-enR9aO" data-id="272:1536"></div>
+        </div>
+      </div>
+    </div>
+    <script src="launchpad-js/launchpad-banner.js" async></script>
+    <script
+      defer
+      src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"
+    ></script>
+  </body>
+</html>
